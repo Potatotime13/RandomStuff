@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import re
 import streamlit as st
+import random as rn
 
 txt = open('Questions.txt', 'r',encoding='utf8').read()
 
@@ -26,13 +27,13 @@ if st.sidebar.button('Neue Klausur', on_click=clear_text):
 def exercises(sol=False):
     st.header('Praktische Aufgaben')
     # params PA problem
-    c_a = 150
+    c_a = 100 + rn.randint(1,10) * 10
     c_b = 100
     o_a = 1000
     o_b = 500
-    p = 0.5
-    q = 0.3
-    w0 = 100
+    q = rn.randint(2,6) * 0.1
+    p = q + rn.randint(1,3) * 0.1
+    w0 = rn.randint(0,20) * 10
 
     st.write('### Gegeben sei folgendes PA Problem:')
     st.write('effort:'+'  \n'
@@ -44,10 +45,24 @@ def exercises(sol=False):
     st.write('### Löse die Folgenden Aufgaben:')
     if not sol:
         st.write('a) Unter welchen Bedingungen ist der Aufwand a effizient')
+        with st.expander('Lösung'):
+            c_diff = p * o_a + (1-p) * o_b - (q * o_a + (1-q) * o_b)
+            st.write('c_a - c_b = E[o|a] - E[o|b] -> c_a - c_b='+str(c_diff))
         st.write('b) Unter beobachtbarem effort, welchen Vertrag würde P A anbieten?')
+        with st.expander('Lösung'):
+            w_p = c_a + w0
+            st.write('c_a + w0 = w -> w='+str(w_p))
         st.write('c) Unter unbeobachtbarem effort, welchen vertrag bietet P A an, so dass dieser den effort a einsetzt')
+        with st.expander('Lösung'):
+            st.write('p*w_a+(1-p)*w_b-c_a=q*w_a+(1-q)*w_b-c_a')        
         st.write('d) Gegeben c) unter welcher Bedingung würde A arbeiten')
+        with st.expander('Lösung'):
+            st.write('p*w_a+(1-p)*w_b>=w0+c_a')
         st.write('e) welche sind unter den gegebenen Parametern die Gehälter die sich aus den Bedingungen ergeben?')
+        with st.expander('Lösung'):
+            w_a = ((w_p)/(1-p)+(c_diff)/(p-q))*(1-p)
+            w_b = w_a - (c_diff)/(p-q)
+            st.write('w_a='+str(w_a)+'  \n'+'w_b='+str(w_b))
 
 st.title('Klausur Generator CBEN')
 
