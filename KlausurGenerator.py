@@ -39,7 +39,7 @@ def exercises(sol=False):
                 +'hoher effort mit kosten c_a='+str(c_a)+'  \n'+'niedriger effort mit kosten c_b='+str(c_b))
     st.write('output:'+'  \n'
                 + 'output für hohen effort o_a = p * '+str(o_a)+' + (1-p) *'+str(o_b)+' mit p='+str(p)+'  \n'
-                +'output für niedrigen effort o_b = * q'+str(o_a)+' + (1-q) *'+str(o_b)+' mit q='+str(q))
+                +'output für niedrigen effort o_b = q * '+str(o_a)+' + (1-q) *'+str(o_b)+' mit q='+str(q))
     st.write('A hat ein Grundeinkommen von w0='+str(w0))
     st.write('### Löse die Folgenden Aufgaben:')
     if not sol:
