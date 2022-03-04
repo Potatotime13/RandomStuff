@@ -1,4 +1,4 @@
-###
+﻿###
 1.2.1 Was macht Compensation and Benefits zu einem Relevanten Feld? Nenne drei Wirkungsweisen:
 -----
 Mitarbeiter Motivation: Geld als Anreiz für Leistung, ebenso wie andere formen der Vergütung. Beides mit die Stärksten Motivationen für Arbeitnehmer
@@ -123,12 +123,13 @@ Steigend in Kosten und Konvex, steigend in Ertrag und konkav
 A will w-c(e) maximieren wohingegen P p(e)-w maximieren will aus den zusammenhängen von e zu p und c ergibt sich ein Interessenkonflikt, das participation constraint: w-c(e)>w0 bestimmt unter welchen Bedingungen A arbeitet
 ###
 1.30.1 Gegeben das participation constraint ist erfüllt, leite das optimale Gehalt im einfache PA Modell her?
+Das Modell ist definiert durch die den Aufwand e, die kosten Funktion c(e), und den Ertrag p(e), sowie dem Reservationsgehalt w0
 -----
 Participation constraint:  w-c(e)>w0 => w=w0+c(e)
 Für den P gilt: max. p(e)-w => max. p(e)-w0-c(e)
 Somit p‘(e)-c‘(e)=0
 ###
-1.31.1 Sind w und e Allokationen in der realen Welt effizient?
+1.31.1 Sind Gehalts und Aufwands Allokationen in der realen Welt effizient?
 -----
 Oft ist die resultierende Lösung nicht effizient da nicht alle Ressourcen optimal genutzt sind, durch Incentivierung lässt sich die Lösung dem Optimum annähern
 ###
@@ -137,7 +138,7 @@ Oft ist die resultierende Lösung nicht effizient da nicht alle Ressourcen optim
 Ja da die Maximierung der gesamten nutzen A+P zum selben Ergebnis führt:
 Max. p(e) - w + w - c(e) => Max. p(e) - c(e) => p‘(e) - c‘(e) = 0
 ###
-1.35.1 In einem Modell mit nicht observierbarer Anstrengung und der Entscheidung zu hoher oder niedriger Anstrengung e bei der sich hohe Anstrengung positiv auf den Erwartungswert des Outputs auswirkt, welches Level e wählt A und ist der Vertrag effizient?
+1.35.1 In einem Modell mit nicht observierbarer Anstrengung sowie Festgehalt und der Entscheidung zu hoher oder niedriger Anstrengung e bei der sich hohe Anstrengung positiv auf den Erwartungswert des Outputs auswirkt, welches Level e wählt A und ist der Vertrag effizient?
 -----
 A würde das niedrigere Anstrengungsniveau wählen da es sein Gehalt nicht negativ beeinfluss, P wird das Antizipieren und ihn entsprechend entlohnen, der Vertrag ist ineffizient, wenn der marginale gewinn durch Anstrengung größer ist als die marginalen kosten:
 (p-q)(pi_h-pi_l)>c(e_h)-c(e_l)
@@ -178,7 +179,7 @@ Ja
 1. Negative Gehälter in Form von Miete verletzt das limit liability constraint
 2. Risiko Aversion verhindert das zustande kommen dieser Verträge, Agenten würden Risikoprämie fordern
 ###
-1.47.1 Unter welchen Bedingungen ist es wahrscheinlicher, dass ein Incentivierender Vertrag eher das effiziente Optimum erreicht?
+1.47.1 Unter welchen Bedingungen(in Bezug auf Risiken) ist es wahrscheinlicher, dass ein Incentivierender Vertrag eher das effiziente Optimum erreicht?
 -----
 1. Unter Bedingungen bei welchen der Risikofaktor auf Einkommen kleiner ist
 2. In Arbeitnehmerkreisen welche weniger Risikoscheu sind, und damit das zu Zahlende Risiko Premium kleiner ist
@@ -372,7 +373,7 @@ Vergleiche werden zwischen den einzelnen Sektionen gezogen, dadurch spielen unbe
 -----
 Die Regression bezieht sich auf Variationen innerhalb der Gruppen, mit einem fixed effects Ansatz lassen sich Zeit konstante Unterschiede zwischen den Gruppen eliminieren
 ###
-3.54.1 Gebe das Standardsetting eines DiD Ansatzes mit Treatment und Kontrollgruppe mit den Zeiträumen vor und nach dem Treatment?
+3.54.1 Gebe das Standardsetting eines DiD Ansatzes mit Treatment und Kontrollgruppe mit den Zeiträumen vor und nach dem Treatment? Gebe Regressionsgleichung und DD Schätzer an:
 -----
 Y = b0 + d0 after+ b1 treat+ d1 after*treat
 Dd Schätzer = (E[y|after,treat] - E[y|before,treat])-(E[y|after,contr] - E[y|before,contr])= d1
@@ -490,7 +491,7 @@ Bei der Salary Band Positionierung spielen interne sowie externe Faktoren eine R
 -----
 Die Positionierung des Midpoints relativ zum Marktmedian zum einen und die Interne Konsistenz der Jobklassenbewertung, im Allgemeinen wird für beides ein Jobbewertungssystem benötigt, welches dabei hilft, die unterschiedlichen Anhaltspunkte zusammenzubringen
 ###
-4.39.1 Was sind die Einsatzgebiete von Job Grading?
+4.39.1 Was sind die Einsatzgebiete von Job Grading im Bezug auf die Mitarbeiter vergütung?
 -----
 Gewicht der Performance Metrik, Gehaltsbenchmark, Struktur des Salary Bands, LTI Berechtigung
 ###

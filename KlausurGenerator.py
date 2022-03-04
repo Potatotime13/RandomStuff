@@ -24,7 +24,7 @@ if st.sidebar.button('Neue Klausur', on_click=clear_text):
     st.session_state.ind = np.random.permutation(q_a_df.shape[0])[0:KLAUSUR_LEN]
     st.session_state.ans = ['' for _ in range(KLAUSUR_LEN)]
 
-def exercises(sol=False):
+def exercises():
     st.header('Praktische Aufgaben')
     # params PA problem
     c_a = 100 + rn.randint(1,10) * 10
@@ -36,6 +36,7 @@ def exercises(sol=False):
     w0 = rn.randint(0,20) * 10
 
     st.write('### Gegeben sei folgendes PA Problem:')
+    st.write('Der effort ist nur indirekt durch das outbut beobachtbar')
     st.write('effort:'+'  \n'
                 +'hoher effort mit kosten c_a='+str(c_a)+'  \n'+'niedriger effort mit kosten c_b='+str(c_b))
     st.write('output:'+'  \n'
@@ -43,26 +44,49 @@ def exercises(sol=False):
                 +'output für niedrigen effort o_b = q * '+str(o_a)+' + (1-q) *'+str(o_b)+' mit q='+str(q))
     st.write('A hat ein Grundeinkommen von w0='+str(w0))
     st.write('### Löse die Folgenden Aufgaben:')
-    if not sol:
-        st.write('a) Unter welchen Bedingungen ist der Aufwand a effizient')
-        with st.expander('Lösung'):
-            c_diff = p * o_a + (1-p) * o_b - (q * o_a + (1-q) * o_b)
-            st.write('c_a - c_b = E[o|a] - E[o|b] -> c_a - c_b='+str(c_diff))
-        st.write('b) Unter beobachtbarem effort, welchen Vertrag würde P A anbieten?')
-        with st.expander('Lösung'):
-            w_p = c_a + w0
-            st.write('c_a + w0 = w -> w='+str(w_p))
-        st.write('c) Unter unbeobachtbarem effort, welchen vertrag bietet P A an, so dass dieser den effort a einsetzt')
-        with st.expander('Lösung'):
-            st.write('p*w_a+(1-p)*w_b-c_a=q*w_a+(1-q)*w_b-c_a')        
-        st.write('d) Gegeben c) unter welcher Bedingung würde A arbeiten')
-        with st.expander('Lösung'):
-            st.write('p*w_a+(1-p)*w_b>=w0+c_a')
-        st.write('e) welche sind unter den gegebenen Parametern die Gehälter die sich aus den Bedingungen ergeben?')
-        with st.expander('Lösung'):
-            w_a = ((w_p)/(1-p)+(c_diff)/(p-q))*(1-p)
-            w_b = w_a - (c_diff)/(p-q)
-            st.write('w_a='+str(w_a)+'  \n'+'w_b='+str(w_b))
+
+    st.write('a) Unter welchen Bedingungen ist der Aufwand a effizient')
+    with st.expander('Lösung'):
+        c_diff = p * o_a + (1-p) * o_b - (q * o_a + (1-q) * o_b)
+        st.write('c_a - c_b = E[o|a] - E[o|b] -> c_a - c_b='+str(c_diff))
+    st.write('b) Unter beobachtbarem effort, welchen Vertrag würde P A anbieten?')
+    with st.expander('Lösung'):
+        w_p = c_a + w0
+        st.write('c_a + w0 = w -> w='+str(w_p))
+    st.write('c) Unter unbeobachtbarem effort, welchen vertrag bietet P A an, so dass dieser den effort a einsetzt')
+    with st.expander('Lösung'):
+        st.write('p*w_a+(1-p)*w_b-c_a=q*w_a+(1-q)*w_b-c_a')        
+    st.write('d) Gegeben c) unter welcher Bedingung würde A arbeiten')
+    with st.expander('Lösung'):
+        st.write('p*w_a+(1-p)*w_b>=w0+c_a')
+    st.write('e) welche sind unter den gegebenen Parametern die Gehälter die sich aus den Bedingungen ergeben?')
+    with st.expander('Lösung'):
+        w_a = ((w_p)/(1-p)+(c_diff)/(p-q))*(1-p)
+        w_b = w_a - (c_diff)/(p-q)
+        st.write('w_a='+str(w_a)+'  \n'+'w_b='+str(w_b))
+    
+    w02 = rn.randint(5,15) * 0.1
+    exp_c = rn.randint(1,3)
+    if exp_c == 1:
+        exp_e = rn.randint(2,3)
+    else:
+        exp_e = rn.randint(1,3)
+    st.write('### Gegeben sei folgendes PA Problem:')
+    st.write('Der Aufwand e ist beobachtbar'+'  \n'+'Das Marktgehalt ist w0='+str(w02)+'  \n'+
+                'Die Kostenfunktion des Agenten ist c(e)=e^'+str(exp_c)+'  \n'+
+                'Die Ertragsfunktion lautet p(e)=e^(1/'+str(exp_e)+')')
+    st.write('a) Stelle das Participation Constraint auf')
+    with st.expander('Lösung'):
+        st.write('c(e) + w0 <= w -> w = c(e) + '+str(w02))
+    st.write('b) Welchen Ertrag würde P A abverlangen, so dass er seinen Ertrag maximiert?')
+    with st.expander('Lösung'):
+        e_pa = (exp_c * exp_e)**(exp_e/(1-(exp_c * exp_e)))
+        st.write('e*='+str(e_pa))
+    st.write('c) Gegeben der Lösung aus b) welches Gehalt würde P anbieten?')
+    with st.expander('Lösung'):
+        w_pa = w02+e_pa**exp_c
+        st.write('w*='+str(w_pa))
+
 
 st.title('Klausur Generator CBEN')
 
