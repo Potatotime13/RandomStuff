@@ -21,7 +21,7 @@ def klausur():
 
     q_a_df = pd.DataFrame(q_a_table)
 
-    KLAUSUR_LEN = st.sidebar.slider('Anzahlfragen', 10,50,10)
+    KLAUSUR_LEN = st.sidebar.slider('Anzahlfragen', 10,q_a_df.shape[0],10)
 
     def clear_text():
         for i in range(KLAUSUR_LEN):
