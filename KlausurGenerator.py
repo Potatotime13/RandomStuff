@@ -3,7 +3,6 @@ import pandas as pd
 import re
 import streamlit as st
 import random as rn
-import os
 
 st.title('Klausur Generator CBEN')
 
