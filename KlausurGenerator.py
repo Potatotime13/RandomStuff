@@ -7,7 +7,7 @@ import os
 
 st.title('Klausur Generator CBEN')
 
-page = st.sidebar.selectbox('Seitenauswahl', ('Klausur','Aufgabe Hinzufügen'))
+page = st.sidebar.selectbox('Seitenauswahl', ('Klausur','Aufgabe Hinzufügen', 'Developer Kram'))
 
 def klausur():
 
@@ -129,8 +129,13 @@ def add_task():
 
     st.button('Hinzufügen', on_click=write_qa)
 
+def save_updates():
+    with open('Questions.txt') as f:
+        st.download_button('Download QA', f)
 
 if page == 'Klausur':
     klausur()
 elif page == 'Aufgabe Hinzufügen':
     add_task()
+elif page == 'Developer Kram':
+    save_updates()
