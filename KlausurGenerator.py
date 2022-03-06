@@ -55,7 +55,7 @@ def klausur():
         st.write('a) Unter welchen Bedingungen ist der Aufwand a effizient')
         with st.expander('Lösung'):
             c_diff = p * o_a + (1-p) * o_b - (q * o_a + (1-q) * o_b)
-            st.write('c_a - c_b = E[o|a] - E[o|b] -> c_a - c_b='+str(c_diff))
+            st.write('c_a - c_b <= E[o|a] - E[o|b] -> c_a - c_b<='+str(c_diff))
         st.write('b) Unter beobachtbarem effort, welchen Vertrag würde P A anbieten?')
         with st.expander('Lösung'):
             w_p = c_a + w0
@@ -68,8 +68,8 @@ def klausur():
             st.write('p*w_a+(1-p)*w_b>=w0+c_a')
         st.write('e) welche sind unter den gegebenen Parametern die Gehälter die sich aus den Bedingungen ergeben?')
         with st.expander('Lösung'):
-            w_a = ((w_p)/(1-p)+(c_diff)/(p-q))*(1-p)
-            w_b = w_a - (c_diff)/(p-q)
+            w_a = ((w_p)/(1-p)+(c_a-c_b)/(p-q))*(1-p)
+            w_b = w_a - (c_a-c_b)/(p-q)
             st.write('w_a='+str(w_a)+'  \n'+'w_b='+str(w_b))
         
         w02 = rn.randint(5,15) * 0.1

@@ -522,3 +522,28 @@ Striktere Regeln zur Incentivierung von der EU erlassen, um Risiko zu verringern
 -----
 Zum einen gibt es eine Basiszahlung prozentual am Investitionskapital, zusätzlich erhält das Management ab einer gewissen Schranke einen Anteil der Profite, zuletzt sind PE Manager häufig mit eigenem Geld im Projekt investiert
 ###
+Wie führen die Autoren die Randomisierung in dem Experiment durch? Wie zeigen die Autoren, dass die Randomisierung erfolgreich war? [4 P.]
+
+-----
+• Randomized Control Trial 
+	◦ Pair-Matching-Verfahren 
+	◦ 96 Paare mit ähnlichem Prognose. Umsatz 
+• Zufällige Zuordnung zu Gruppe
+
+
+
+Untersuchung auf signifikante Unterschiede zwischen den Gruppen
+Verschiedene Charakteristika verwendet (Anteil Mini-Jobber, mystery shopping score etc)
+-> keine
+###
+Friebel et al: In welcher Art von Städten und Ortschaften (groß, mittel, klein) reagieren die
+Teams am stärksten auf den Bonus? Wie erklären die Autoren das aus dem Agency Modell heraus? [4 P.]
+-----
+Städte, große Bevölkerungszahl
+Zu Stoßzeiten bildet sich schlangen, die schneller abgearbeitet werden können
+
+Agency Modell:
+• Bonuseffekt steigt, wenn Grenzertrag der Anstrengung besonders hoch ist!
+• Die Filialen in Großstädten haben besonders viele Gäste -> öfter Schlangen 
+• Über gute Kooperation & schnellen Service lassen sich schlangen reduzieren (=> hoher Grenzertrag)
+###
