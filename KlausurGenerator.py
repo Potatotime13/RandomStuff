@@ -85,7 +85,7 @@ def klausur():
         st.write('a) Stelle das Participation Constraint auf')
         with st.expander('Lösung'):
             st.write('c(e) + w0 <= w -> w = c(e) + '+str(w02))
-        st.write('b) Welchen Ertrag würde P A abverlangen, so dass er seinen Ertrag maximiert?')
+        st.write('b) Welchen Aufwand würde P A abverlangen, so dass er seinen Ertrag maximiert?')
         with st.expander('Lösung'):
             e_pa = (exp_c * exp_e)**(exp_e/(1-(exp_c * exp_e)))
             st.write('e*='+str(e_pa))
