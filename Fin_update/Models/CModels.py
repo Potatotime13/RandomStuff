@@ -4,6 +4,26 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from Models.CustomLayers.CLayers import *
 
+class TestModel():
+    def __init__(self, num_stocks) -> None:
+        self.num_stocks = num_stocks
+
+    def decide(self, predictions, money, prices, port):
+        buy = predictions > 0.5
+        sell = predictions < 0.5
+        sell = sell*port # sell all selling-stocks in the portfolio
+        money += np.sum(sell*prices)
+        per_stock = money / max(np.sum(buy),1)
+        buy = buy*(per_stock/prices).astype(int) # use nearly all money to buy buying-stocks
+        return buy, sell
+
+    def predict(self, dummy):
+        return np.ones(self.num_stocks)
+
+    def generate_data(self):
+        pass
+
+
 class DTML(keras.Model):
     '''
     lstm / attention hybrid model for stock price prediction
@@ -21,7 +41,7 @@ class DTML(keras.Model):
         self.multi_con = Multi_Context(0.1)
         self.multi_head = layers.MultiHeadAttention(num_heads=num_heads, key_dim=int(num_dense/num_heads), attention_axes=(0, 1))
         self.context_tr = Context_Transformer(rate, num_dense)
-        self.predictor = layers.Dense(1,activation='sigmoid',kernel_regularizer=keras.regularizers.l2(0.01),bias_regularizer=keras.regularizers.l2(0.01))
+        self.predictor = layers.Dense(1,activation='sigmoid',kernel_regularizer=keras.regularizers.l2(1),bias_regularizer=keras.regularizers.l2(1))
         self.window = window
 
     def call(self, inputs):
@@ -60,10 +80,18 @@ class DTML(keras.Model):
 
     def generate_data(self, timeseries, mid):
         '''
-        timeseries 3D matrix with [stock,time,feature]
-        feature format [open, high, low, close, adjclose]
-        num_stocks number of stocks with market reference included
-        output = array[batch,stock,time,feature], array[batch,stock,time,feature], ...
+        generates data for training and trading according to the model specifics
+        
+        INPUTS:
+        timeseries: timeseries of stock prices with shape [stock,time,feature]
+                    feature format [open, high, low, close, adjclose]
+        mid: splitting point between training and trading
+        
+        OUTPUTS: 
+        *_in: [batch,stock,time,feature]
+        *_out: [batch,label]
+        price_trade: prices later used for the trading simulation
+        price_full: full price set which can be used for validity checks
         '''
         # helper functions
         def mov_avg(dm,ts,ks):
@@ -104,7 +132,7 @@ class DTML(keras.Model):
         data_tmp = np.delete(data_tmp,slice(29),axis=1)
         data_tmp = np.delete(data_tmp,-1,axis=1)
 
-        # training set TODO fill forward ???
+        # training set
         data_train = data_tmp[:,:mid,:]
         rand_ind = np.random.permutation(np.arange(self.window-1,mid))
         train_in = np.zeros((rand_ind.shape[0],num_stocks,self.window,data_train.shape[2]))
@@ -113,12 +141,12 @@ class DTML(keras.Model):
             train_in[i,:,:,:] = data_train[:,rn+1 -self.window: rn+1,:]
             train_out[i,:] = data_labels[:,rn]
         
-        # trading set TODO fill forward
+        # trading set
         data_trade = data_tmp[:,mid-self.window+1:,:]
-        test_in = np.zeros((data_trade.shape[1]+1-self.window,num_stocks,self.window,data_trade.shape[2]))
-        test_out = np.zeros((data_trade.shape[1]+1-self.window,data_labels.shape[0]))
-        for j in range(self.window-1, test_in.shape[0]):
-            test_in[j+1 -self.window,:,:,:] = data_trade[:,j+1 -self.window: j+1,:]
-            test_out[j+1 -self.window,:] = data_labels[:,j]
+        test_in = np.zeros((prices_full.shape[1]-mid,num_stocks,self.window,data_trade.shape[2]))
+        test_out = np.zeros((prices_full.shape[1]-mid,data_labels.shape[0]))
+        for j in range(test_in.shape[0]):
+            test_in[j,:,:,:] = data_trade[:,j : self.window + j,:]
+            test_out[j,:] = data_labels[:,mid + j]
 
         return train_in, train_out, test_in, test_out, prices_trade, prices_full   

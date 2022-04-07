@@ -6,11 +6,12 @@ class TradeEnv():
     -costs: costs per trade
     -seperator: percentage of time which is for the pretraining
     '''
-    def __init__(self, costs, seperator) -> None:
+    def __init__(self, costs, seperator, retraining) -> None:
         self.stocks = []
         self.time = []
         self.costs = costs
         self.separator = seperator
+        self.retraining = retraining
 
     def trading_simulation(self, model, tradeepochs, tradeset, tradesol, prices):
         '''
@@ -34,7 +35,7 @@ class TradeEnv():
 
         portfolio = np.zeros(prices.shape[0])
         money = 100000
-        money_s = money
+        money_s = 100000
 
         # trading
         for i in range(tradeset.shape[0]):
@@ -42,12 +43,16 @@ class TradeEnv():
             bu, se = model.decide(pred, money, prices[:,i], portfolio)
             rev, portfolio = execute_trade(bu, se, portfolio, prices[:,i])
             money += rev        
-            if i > 0 and i % 20 == 0:
+            if i > 0 and i % 20 == 0 and self.retraining:
                 model.fit(tradeset[i-20:i,:,:,:],tradesol[i-20:i,:], batch_size=4, epochs=tradeepochs)
         
         return (money + np.sum(prices[:,i] * portfolio))/money_s
 
     def load_data(self):
+        '''
+        ACHTUNG ZWISCHENLÖSUNG:
+        langfristig daten aus der datenbank beziehen, auch in abhängigkeit von environment paramentern
+        '''
         with open('./Fin_update/Environments/test.npy', 'rb') as f:
             data = np.load(f)
         mid = int(data.shape[1] * self.separator)

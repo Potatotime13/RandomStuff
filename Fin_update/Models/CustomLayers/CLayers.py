@@ -92,8 +92,10 @@ class Multi_Context(layers.Layer):
 class Context_Transformer(layers.Layer):
     '''
     Transform the multi head attention as described in 'attention is all you need'
-    INPUT is []
-    OUTPUT is []
+    INPUTS:
+    x_1: data before multi head attention [batches, stocks -1, features]
+    x_2: data after multi head attention [batches, stocks -1, features]
+    OUTPUT is [batches, stocks -1, features]
     '''
     def __init__(self, rate, num_dense):
         super(Context_Transformer, self).__init__()
