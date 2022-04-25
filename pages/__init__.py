@@ -1,4 +1,3 @@
-from sympy import im
 from pages.home import home_page
 from .games import game_page
 from .exam import exam_page
