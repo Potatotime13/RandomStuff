@@ -1,1 +1,2 @@
 streamlit-multipage
+streamlit== 1.8.1
