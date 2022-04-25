@@ -1,0 +1,549 @@
+﻿###
+1.2.1 Was macht Compensation and Benefits zu einem Relevanten Feld? Nenne drei Wirkungsweisen:
+-----
+Mitarbeiter Motivation: Geld als Anreiz für Leistung, ebenso wie andere formen der Vergütung. Beides mit die Stärksten Motivationen für Arbeitnehmer
+Firm Performance: Mitarbeiter Kosten gehören zu den größten Kostenblöcken einer Firma und hat so einen direkten Einfluss auf die Performance
+Gesellschaftliche Wirkung: Öffentliches Augenmerk auf Bezahlungsstrukturen vor allem bei Hochbezahlten und bei bezahlungsunterschieden steigt. Das gesellschaftliche Ansehen einer Firma wird unteranderem durch diese Mechanik beeinflusst
+###
+1.2.2 Eine Firma schüttet hohe Boni für ihre Manager aus, welche Risiken sind dabei relevant?
+-----
+Mitarbeiter: Hohe Boni können zu einem Gefühl der Ungerechtigkeit bei Mitarbeitern auf niedrigeren Positionen führen, was die Motivation mindern kann. Da gegen wirkt der Effekt das durch hohe Boni ein aufsteigen in der Firma und damit Leistung zu zeigen attraktiver wird
+Öffentlichkeit: Hohe Boni werden häufig als überzogen wahrgenommen, andere Vergütungssysteme über Unternehmensanteile sind weniger geächtet.
+###
+1.3.1	Nenne ein Beispiel, bei dem eine überdurchschnittlich gute Bezahlung der Firma einen Anstieg in der Performance gebracht hat?
+-----
+Die Ford Motor Company hat durch einen branchenunüblich hohen Lohn bessere Arbeitnehmer Werben können und diese auch in der Firma halten können, mehr Produktivität und weniger Turnover waren die Folge.
+###
+1.4.1	Nenne ein Beispiel bei dem Performance Pay Einführung bei der dadurch das Gehalt wie auch die Performance stieg?
+-----
+Satellite Glass Corp führte statt eines Stundenlohns einen Stücklohn ein was zu einem anstieg der Produktivität um 44% führte. Die Arbeitsmoral wurde hierdurch gestärkt und produktivere Arbeitnehmer angezogen.
+###
+1.5.1	Nenne ein Beispiel für negative Effekte von Performance Pay und was daraus für ein Performance Pay Design folgt?
+-----
+Hanoi Rat Massacre, Pro getöteter Ratte Bezahlung, dadurch sollte die Rattenpopulation eingedämmt werden, jedoch wurde es dadurch rentabel Ratten zu züchten, was insgesamt einen Anstieg der Rattenpopulation nach sich zog. Die Populationssenkung an abgelieferten Ratten zu messen und zu vergüten war eine schlechte Messgrößenwahl.
+Cobra Effekt analog zu Ratten
+Gleiche Effekte Lassen sich auch bei Performance Pay im Beruf beobachten, wenn die Messgröße die gewollte Performance nur ungenau abbildet. Lehrer bekommen Bonus für gute Noten der Klasse -> Prüfungen einfacher machen, Piloten bekommen Bonus für schnelles ankommen -> gehen höhere ungewollte Risiken ein
+###
+1.6.1	Woraus lässt sich eine Vergütung in einem Arbeitnehmerverhältnis zusammensetzen?
+-----
+Gesamtkompensation:
+Geldliche Vorteile: Gehalt, Lebenshaltungskosten Unterstützung, Lang und Kurzfristige Anreize
+Benefits: Work Life Balance, Berechtigungen, Einkommens Sicherheit
+Andere Vorteile: Status, Anerkennung, Sicherheit, Spannende Arbeit, Lernmöglichkeiten
+###
+1.7.1	Beschreibe die Zahlungsdimension Merit Pay und costs of living adjustments, nenne Beispiele?
+-----
+Merit Pay ist Performance Pay, fügt somit zum Basis Gehalt eine performanceabhängige Zusatz Zahlung hinzu
+Costs of living adjustments (COLA) sind Zusatz Zahlungen, welche dem Arbeitnehmer höhere soziale Sicherheit geben sollen indem sie durch Inflation steigende Preisen durch mehr Gehalt entgegenwirken
+Incentives Pay, Anreizzahlungen zur Motivation der Mitarbeiter unternehmensziele zu erreichen
+###
+1.8.1	Welche Zusätzlichen Benefits kann ein Arbeitgeber seinen Angestellten bieten?
+-----
+Einkommensschutz wie Sozialversicherungsbeiträge oder Krankenkassen Beiträge
+Work / Life Balance, der Arbeitgeber kann Dinge wie zusätzlichen Urlaub (Bsp. Netflix mit unbegrenztem Urlaub), Kundenbetreuung und Weiterbildungsmaßnahmen wie auch Sport Programme anbieten
+Privatnutzung von Arbeitsbezogenen Gütern und Services wie Auto, Computer und andere
+###
+1.8.2	Welche vor und Nachteile haben Benefits?
+-----
+Nicht jeder bewertet einen Benefit wie einen Firmenwagen gleich, bei Geld ist diese Bewertung Homogener, so kann durch einen unausgewogenes Benefit Set eine gewisse Ungleichheit hervorrufen, aber auch genutzt werden, um bestimmte Leute stärker anzusprechen
+Benefits können Steuerliche Vorteile im Vergleich zu geldlichen Leistungen haben
+###
+1.9.1 Welche nicht materiellen Motivationen können mit einer Arbeit einher gehen?
+-----
+Anerkennung und Status sind wichtige zusätzliche motivationsquellen, wie auch das Gefühl etwas Gutes und Wichtiges zu tun
+###
+1.10.1 Wie lässt sich ein wettbewerbsgetriebener Arbeitsmarkt charakterisieren?
+-----
+Arbeitnehmer sind homogen und austauschbar
+Der Lohn wird gesamtheitlich betrachtet, unterschiedliche Komponenten sind nicht unterscheidbar
+Es entstehen keine Vorteile durch Anhebung oder Senkung des Gehaltes
+Alle Teilnehmer haben perfekte Informationen
+Daraus ergibt sich ein Gleichgewichtsgehalt und Anstellungsniveau 
+###
+1.11.1 Charakterisiere Arbeitsnachfrage und Angebot in einem einfachen Marktmodell?
+-----
+Arbeitsnachfrage: Technisch das Maß für marginale Arbeitsproduktivität, woraus folgt: mehr Human Kapital pro Person desto höher die Arbeitsproduktivität und damit der Lohn. Arbeit hat fallende Grenzerträge.
+Arbeitsangebot: Arbeitsbereitschaft der Arbeiter hängt steigend mit dem Gehalt zusammen und fallend mit dem Reservationsgehalt
+###
+1.13.1 Welchen Einfluss hat ein Anstieg der Arbeitsproduktivität auf die Arbeitsnachfragekurve und das Gleichgewicht?
+-----
+Die Kurve verschiebt sich nach oben, dadurch wird ein höherer Lohn gezahlt und mehr Arbeitnehmer eingestellt
+###
+1.14.1 Worin liegen die Gründe für beobachtbare Gehaltsunterschiede, welche gegen die Theorie des Arbeitsmarktmodells sprechen?
+-----
+Arbeitnehmer wollen bestmögliche Arbeiter finden motivieren und in der Firma halten
+###
+1.14.2 Welche Probleme können beim Zahlen höherer Gehälter, um bessere Arbeitnehmer zu werben, entstehen?
+-----
+Informationsasymmetrie ist das Hauptproblem, welches in diesem Fall auftritt, sie teilt sich in Adverse Selektion und Moral Hazard auf. Adverse Selektion bezieht sich hierbei darauf, dass nicht ersichtlich ist wer wie produktiv ist und sich jeder auf das höhere Gehalt hin bewerben würde, Abhilfe schaffen hierbei Produktivitätssignale wie Abschlüsse und Noten. Moral Hazard tritt auf, weil die Intensionen von Arbeitnehmer und Arbeitgeber entgegengesetzt sind, durch Incentivierung kann können die Interessen beider Parteien auf einen Nenner gebracht werden.
+###
+1.17.1 Warum kann es schwierig sein die Bezahlung direkt an den Aufwand des Mitarbeiters zu knüpfen, was kann eine praktikable Alternative sein?
+-----
+Aufwand ist häufig schwer zu messen, wodurch das Bezahlungsmodell unscharf sein würde, eine Approximierung des Aufwandes durch Messung und Bewertung des Outputs kann hier Klarheit schaffen
+###
+1.18.1 Wie ergibt sich die Arbeits- oder Faulenzentscheidung eines Arbeiters, wenn er beim Faulenzen mit Wahrscheinlichkeit p erwischt wird und eine outside Option w0 hat, Arbeit kostet in c und bringt ihm w?
+-----
+Der Arbeiter arbeitet, wenn gilt w-c > p w0 + (1-p) w beziehungsweise p(w-w0) > c
+###
+1.19.1 Gegeben der Arbeitnehmer Entscheidung p(w-w0) > c, welches w wird der Arbeitgeber wählen, von welcher Bedingung hängt die Wahl ab?
+-----
+Der Arbeitgeber würde grade ausreichend viel zahlen p(w-w0) = c jedoch nur wenn der Profit unter diesem Gehalt höher ist als ohne, sonst p=0 w=w0
+###
+1.20.1 In welchem Verhältnis stehen Monitoring kosten und Gehalt im Modell p(w-w0)=c^2
+-----
+Je höher das Monitoring gewählt werden kann desto geringer Muss das Gehalt w sein, die beiden stellen Substitute dar, jedoch ist Monitoring nicht immer gleich teuer, so kommt es in bestimmten Sektoren wo Monitoring sehr schwer und damit sehr teuer ist eher zu hohen Gehältern.
+###
+1.21.1 Welcher Kostenfaktor kann bei Performance Pay aufgrund beispielsweise exogener Wirtschaftsschwankungen anfallen?
+-----
+Mitarbeiter tragen durch Performance Pay mitunter ein Teilrisiko am Geschäft der Firma welches Kompensiert werden muss
+###
+1.22.1 Nenne 6 verschiedene Arten von Performance Pay?
+-----
+Periodische Mieten für Geschäftsbetrieb, Gewinn gehört Mieter (Taxi)
+Festgehalt plus pro Stück Bezahlung (Satellite Glas Corp)
+Festgehalt plus Bonus bei Erreichen eines Output Ziels
+Aktien Optionen mit Mindestlaufzeit
+Aussicht auf langfristig steigende Gehälter
+Wettbewerbs Platzierung führt zu einem Bonus
+###
+1.23.1 In welchen Fällen eignet sich Performance Pay weniger?
+-----
+In kleinen Firmen, wo Monitoring einfach ist, wo Performancemaße vielschichtig und komplex sind, hohe Risiko Aversion der Arbeitnehmer, wo negatives Verhalten als folge vorauszusehen ist
+###
+1.26.1 Wie verhalten sich Anteile von Performance Pay im Verhältnis zu Löhnen ohne PP über die letzten Jahrzehnte?
+-----
+Deutlicher Anstieg auf bis zu 60% dort stagnierend
+###
+1.28.1 Wie hängen im Prinzipal Agenten Modell Anstrengung mit Kosten und Ertrag zusammen?
+-----
+Steigend in Kosten und Konvex, steigend in Ertrag und konkav
+###
+1.29.1 Worin besteht formal der Interessenskonflikt von Prinzipal und Agent, wann arbeitet A für P?
+-----
+A will w-c(e) maximieren wohingegen P p(e)-w maximieren will aus den zusammenhängen von e zu p und c ergibt sich ein Interessenkonflikt, das participation constraint: w-c(e)>w0 bestimmt unter welchen Bedingungen A arbeitet
+###
+1.30.1 Gegeben das participation constraint ist erfüllt, leite das optimale Gehalt im einfache PA Modell her?
+Das Modell ist definiert durch die den Aufwand e, die kosten Funktion c(e), und den Ertrag p(e), sowie dem Reservationsgehalt w0
+-----
+Participation constraint:  w-c(e)>w0 => w=w0+c(e)
+Für den P gilt: max. p(e)-w => max. p(e)-w0-c(e)
+Somit p‘(e)-c‘(e)=0
+###
+1.31.1 Sind Gehalts und Aufwands Allokationen in der realen Welt effizient?
+-----
+Oft ist die resultierende Lösung nicht effizient da nicht alle Ressourcen optimal genutzt sind, durch Incentivierung lässt sich die Lösung dem Optimum annähern
+###
+1.33.1 Ist die PA Modell Lösung p‘(e)-c‘(e)=0 effizient?
+-----
+Ja da die Maximierung der gesamten nutzen A+P zum selben Ergebnis führt:
+Max. p(e) - w + w - c(e) => Max. p(e) - c(e) => p‘(e) - c‘(e) = 0
+###
+1.35.1 In einem Modell mit nicht observierbarer Anstrengung sowie Festgehalt und der Entscheidung zu hoher oder niedriger Anstrengung e bei der sich hohe Anstrengung positiv auf den Erwartungswert des Outputs auswirkt, welches Level e wählt A und ist der Vertrag effizient?
+-----
+A würde das niedrigere Anstrengungsniveau wählen da es sein Gehalt nicht negativ beeinfluss, P wird das Antizipieren und ihn entsprechend entlohnen, der Vertrag ist ineffizient, wenn der marginale gewinn durch Anstrengung größer ist als die marginalen kosten:
+(p-q)(pi_h-pi_l)>c(e_h)-c(e_l)
+###
+1.36.1 Welche drei Bedingungen müssen im Incentive Based PA Modell erfüllt sein?
+-----
+1. Incentive constraint: A muss hohe anstrengung bevorzugen:
+P*w_h + (1-p)*w_l-c(e_h) > q*w_h+(1-q)*w_l-c(e_l)
+2. Participation constraint: A muss zu den Konditionen arbeiten wollen: 
+P*w_h + (1-p)*w_l-c(e_h) > w0
+3. Limited liability constraint: Löhne müssen positive sein w_h,w_l>0
+###
+1.37.1 Ist die Lösung des PA Modells mit unbekannter Anstrengung effizient im Fall von einer incentivierenden Bezahlung, wenn ja wann?
+-----
+Im Fall, dass alle drei Bedingungen erfüllt sind und die ersten beiden mit minimalen Gehältern ist die Lösung effizient
+###
+1.38.1 Lässt sich das Problem eines negativen Gehaltes im PA Incentive Modell lösen so dass die Lösung optimal bleibt?
+-----
+Nein
+###
+1.39.1 Durch das raufsetzen des niedrigen Gehaltes w_l=0 im fall von Negativität beschreibt w0+c(e_h)+(1-p)*R die kosten des P im PA Incentive Modell, leite R her?
+-----
+R = (p* (c(e_h)- c(e_l))/(p-q) -w0-c(e_h))
+###
+1.40.1 In einen Stückraten Modell gegeben durch Output y=e+z ; Kosten c(e)=e²/2k ; Gehalt w = s+r*y gilt es das optimale r zu finden?
+-----
+A: max. E(w)-c(e) => max. s+r*e-e²/2k => e* = r*k
+P: max. E(y)-E(w) => max. e-s-r*e => r*k-s-r²*k
+s: part. Con E(w)-c(e)=w0 => s+r²*k-(r²*k²)/(2k)=w0 => s = w0-(r²*k)/2
+=> max. r*k-s-r²*k => max. r*k - w0-(r²*k)/2 => r=1
+###
+1.44.1 Ist das Stückraten PA Modell effizient?
+-----
+Ja
+###
+1.45.1 Was ist der Grund dafür das viele Firmen nicht 100% Performance Pay mit Vermietung der zur Arbeit notwendigen Dinge implementieren?
+-----
+1. Negative Gehälter in Form von Miete verletzt das limit liability constraint
+2. Risiko Aversion verhindert das zustande kommen dieser Verträge, Agenten würden Risikoprämie fordern
+###
+1.47.1 Unter welchen Bedingungen(in Bezug auf Risiken) ist es wahrscheinlicher, dass ein Incentivierender Vertrag eher das effiziente Optimum erreicht?
+-----
+1. Unter Bedingungen bei welchen der Risikofaktor auf Einkommen kleiner ist
+2. In Arbeitnehmerkreisen welche weniger Risikoscheu sind, und damit das zu Zahlende Risiko Premium kleiner ist
+###
+2.5.1 Welche beiden Experiment Typen gibt es, um kausale Zusammenhänge zu finden?
+-----
+Randomized Experiment, Gleichförmige Control und Treatment Gruppen, ist der optimalfall
+Quasi Experiment/field observation, Beobachtung in realer Welt, Control und Treatment Gruppen weißen üblicherweise Unterschiede auf, die in der Analyse bereinigt werden müssen
+###
+2.6.1 Wann wird die Wirkung einer variable x auf y als endogen bezeichnet?
+-----
+Der Effekt von x auf y ist nicht kausaler Natur und ist in anderen Zusammenhängen begründet
+### 
+2.6.2 Welche drei Ursachen kann Endogenität haben?
+-----
+Omitted Variable Bias, Selection-> Vergleichsbasis ist nicht dieselbe, Reverse Causality
+###
+2.8.1 Worin besteht der Unterschied von Korrelation und Kausalität?
+-----
+Korrelation -> Ungerichteter Zusammenhang
+Kausalität -> Gerichteter Zusammenhang
+###
+2.12.1 Welchen Effekt hat die zufällige Zuweisung der Gruppen in einem Randomized Experiment auf die Aussagekraft des Treatments?
+-----
+Durch die zufällige Zuweisung ist die Wahrscheinlichkeit, dass unbeobachtete Einflüsse auf die Messgröße zwischen den gruppen gleichverteilt sind und damit die Aussagekraft nicht schmälern
+###
+2.15.1 Aus Welchen Effekten setzt sich die naive Differenz GruppeA(t)-GruppeB(c) zusammen, beschreibe die Effekte formell?
+-----
+GruppeA(t)-GruppeB(c) => GruppeA(t)-GruppeA(c)+GruppeA(c)-GruppeB(c)
+=> treatment_effect(GruppeA(t)-GruppeA(c)) + 
+       group_diffs(GruppeA(c)-GruppeB(c))
+###
+2.20.1 Welchen Unterschied hat eine zufällige Gruppenzuweisung auf die Differenz GruppeA(t)-GruppeB(c), beschreibe anhand der Formel?
+-----
+GruppeA(t)-GruppeB(c) => GruppeA(t)-GruppeA(c)+GruppeA(c)-GruppeB(c)
+=> treatment_effect(GruppeA(t)-GruppeA(c)) + 
+       group_diffs(GruppeA(c)-GruppeB(c))
+durch die zufällige Wahl der Gruppen gilt für n->unendlich:
+       group_diffs(GruppeA(c)-GruppeB(c))-> 0
+###
+2.22.1 Wie lässt sich nach einer zufälligen Gruppen Zuweisung ermitteln ob in Bezug auf bestimmte variablen unterschiede bestehen?
+-----
+Betrachtung der Gruppen Differenzen und Standardabweichung, wenn die std halb so groß oder kleiner ist, ist der unterschied signifikant
+###
+2.25.1 Welche Probleme kann es bei der zufälligen Zuweisung von Treatments geben?
+-----
+Für negative treatments kann es sein, dass sie aus ethischen Gründen nicht angewendet werden dürfen. Für positive können diese zu ungerecht empfundenen unterschieden führen. Für beide Fälle ist ein Quasi Experiment der üblichere Fall.
+###
+2.31.1 Welchem Ziel kommt man näher, indem man Beobachtungen gruppiert vergleicht?
+-----
+Man kommt dem Optimum „other things equal“ näher, wodurch der Treatment Effekt einen größeren Anteil am gemessenen Effekt hat
+###
+2.39.1 Gegeben dem Regressionsmodell y=a+b*private+g*GroupA zur Schätzung des Gehaltes durch die besuchte Universität,
+Wie lassen sich folgende Parameter Kombinationen interpretieren:
+b, g, a+g, a+b+g
+-----
+b := zusätzliches erwartetes Gehalt durch den Besuch einer Privatuni
+g := zusätzliches erwartetes Gehalt in GroupA gegenüber anderen Gruppen
+a+g := erwartetes Gehalt einer Person aus GroupA welche nicht auf eine privat uni geht
+a+b+g := erwartetes Gehalt einer Person auf die alle Dummys zutreffen
+###
+2.39.2 Gegeben dem Regressionsmodell y=a+b*private+g*GroupA zur Schätzung des Gehaltes durch die besuchte Universität,
+Wie lässt sich g<0 interpretieren?
+-----
+In GroupA ist das durchschnittsgehalt niedriger als in den Anderen
+###
+2.39.3 Gegeben dem Regressionsmodell y=a+b*private+g*GroupA zur Schätzung des Gehaltes durch die besuchte Universität,
+Wie würde sich b durch das Hinzufügen weiterer Gruppen, in denen alle entweder Privatunis oder Öffentliche besucht haben, ändern?
+-----
+Gar nicht, da die Gruppen keine zusätzlichen Infos zu Unterschieden zwischen Privatunis und öffentlichen liefern
+###
+2.39.4 Gegeben dem Regressionsmodell y=a+b*private+g*GroupA zur Schätzung des Gehaltes durch die besuchte Universität,
+Wie müsste das Modell angepasst werden, wenn man weitere Gruppeneffekte messen wollen würde?
+-----
+Für jede zusätzliche Gruppe müsste eine Dummy Variable hinzugefügt werden
+###
+2.39.5 Gegeben dem Regressionsmodell y=a+b*private+g*GroupA zur Schätzung des Gehaltes durch die besuchte Universität,
+was würde das hinzufügen einer weiteren Kontrollvariable wie SAT score nutzen?
+-----
+Dadurch würde man ein proxy für Leistung einfügen, welcher mitunter fälschlicherweise in der Dummy variable für Privatunis enthalten ist, da hier mit unter leistungsorientiertere Studenten zu finden sind
+###
+2.40.1 Gegeben dem echten Modell y=b0+b1*x1+b2*x2, leite den omitted variable bias für b1 für das Modell y=b0+b‘1*x1 her
+-----
+b‘1=cov(x1,y)/var(x1)
+b1 = …
+b‘1=b1+b2*(cov(x1,x2)/var(x1))
+###
+2.41.1 Woraus setzt sich der omitted variable bias in Bezug auf die nicht ausgelassene Variable zusammen?
+-----
+Der Parameter der zweiten variable mal dem Zusammenhang von der nicht Ausgelassenen zur ausgelassenen variable: cov(x,x_aus)/var(x)
+###
+2.42.1 Unter welchen Bedingungen ist der omitted variable bias positiv, wann negativ?
+-----
+Positiv: Wenn die Beziehung der ausgelassenen variable zu y in dieselbe Richtung wie die Beziehung zur verwendeten Variable
+Negativ: Wenn die Beziehungen entgegengesetzt sind
+###
+2.43.1 Mit gegebenem Modell: gehalt = b0+b1*bildung, welche variable könnte in diesem Modell ausgelassen sein, wie gestaltet sich der omitted variable bias?
+-----
+Intelligenz ist ebenfalls ein Faktor, welcher einen Einfluss auf das Gehalt hat, dabei sind Gehalt sowie Bildung positiv mit Intelligenz korreliert, somit ist der bias für b1 positiv und b1 überschätzt den Einfluss von Bildung auf das Gehalt
+###
+2.44.1 Was sind Beispiele für schlecht gewählte Kontrollvariablen?
+-----
+Erklärung durch y über einen anderen Zusammenhang, bei Gehalt wäre das etwas wie Jobtitle, Kontrollvariablen sollten im Normalfall Differenzen vor dem Treatment erfassen
+###
+2.46.1 Was ist max. 3.73+0.3*x-0.006*x^2?
+-----
+2.5 oder so
+###
+2.48.1 Wie lassen sich bei einer logarithmierten abhängigen variablen die Regressionsparameter interpretieren?
+-----
+Als prozentuale Veränderung in der darauf bezogenen Variablen
+###
+2.49.1 Sind Sigmoid Funktionen cool?
+-----
+Ja
+###
+2.51.1 Welche Ursachen kann es haben, dass der Zusammenhang von schulischer Leistung zwischen unterschiedlichen Ausbildungsprogrammen und Schülern endogen ist?
+-----
+Der omitted varaible bias spielt hier eine tragende Rolle, Faktoren wie Elternhaus, Intelligenz, Lehrer, soziale Umgebung haben neben dem Schulprogramm maßgeblichen Einfluss auf die Leistung
+###
+2.53.1Für was steht das Kürzel LATE im Regressionskontext?
+-----
+Local average treatment effect
+###
+2.55.1 Beschreibe die Funktionalität einer Instrumentalen Variable in einer Regression?
+-----
+Eine IV schätzt eine andere Variable, für welche der Zusammenhang auf y untersucht werden soll, es ist somit eine Verkettung von zusammenhängen
+###
+2.56.1 Was versteht man unter der IV-Chain?
+-----
+Die Verkettung von zusammenhängen bei IV Regressionen: 
+Effekt von a auf c = Effekt von a auf b * Effekt von b auf c
+###
+2.57.1 Gebe den Wald Estimator an, warum ähnelt er dem indirect least squares estimator?
+-----
+Wald Estimator: E[a|b=1]-E[a|b=0] / E[c|b=1]-E[c|b=0], beide arbeiten mit dem Zusammenhang zur variable b jedoch nutzt der Wald Estimator die binären Eigenschaften von b, sie drücken beide das selbe aus
+###
+2.58.1 Nenne und erkläre die zwei Bedingungen für die Verwendung von IV?
+-----
+Instrumenten Relevanz: der Zusammenhang zwischen dem Instrument und der regressierten variable ist nicht null
+Instrumenten Exogenität: Der Zusammenhang von Instrument und letztlich zu regressierender variable ist nur indirekt über x gegeben
+###
+2.59.1 Nenne die vier LATE annahmen?
+-----
+1. Das Instrument ist unabhängig von den Treatments
+2. Das Instrument ist exogen
+3. Das Instrument ist relevant
+4. Das Instrument ist monoton
+###
+2.62.1 Was versteht man unter dem weak instruments problem?
+-----
+Es tritt auf wenn die IV mit einer unbeobachteten variable leicht korreliert ist und gleichzeitig zwischen der IV und der zu schätzenden Modell variable x nur ein kleiner Zusammenhang besteht
+###
+2.64.1 Gebe den allgemeinen Schätzer Beta in einem IV Modell an?
+-----
+Beta = (cov(y,b)/var(b)) / (cov(x,b)/var(b))
+###
+2.64.2 Wie lässt sich der IV Schätzer über indirect least squares herleiten?
+-----
+Mit h1 = cov(x,z)/var(z) und b1 = cov(y,x)/var(x) :
+B1 = cov(y,h1*z)/var(h1*z) => b1 = 1/h1 * cov(y,z)/var(z) = cov(y,z)/cov(x,z)
+###
+3.36.1 Was ist der Unterschied zwischen cross section und panel data
+-----
+Panel ist cross section über die Zeit beobachtet
+###
+3.37.1 Was ist die Motivation hinter fixed effects?
+-----
+Eliminieren von Gruppen bezogenen biasen, welche auf unbeobachtete Effekte zurück gehen, um der wahren Beziehung zwischen x und y näher zu kommen
+###
+3.39.1 Wie funktioniert Deamining auf gruppenbezogene Daten?
+-----
+Man zieht pro Dimension/variable den Gruppenmittelwert von den Datenpunkten einer Gruppe ab
+###
+3.46.1 Wie verhält sich die durchschnittliche Regression pro Gruppe bei Panel Data im Vergleich zur deamened regression?
+-----
+Sie zeigen den selben Zusammenhang
+###
+3.47.1 Leite formal eine allgemeine Fixed Effekt Regression her?
+-----
+Y = a + bx + cz
+E[y] = a + b E[x] + c E[z]
+y-E[y] = b (x-E[x]) + c (z-E[z]) 
+Gruppen Unterschiede sind somit entfernt pooled ols ist anwendbar
+###
+3.48.1 Was sind Probleme bei Regressionen mit Cross Sectional Data?
+-----
+Vergleiche werden zwischen den einzelnen Sektionen gezogen, dadurch spielen unbeobachtete unterschiede der Sektionen eine tragende Rolle, für diese müssen quasi-experimental-settings gefunden werden, um sie zu eliminieren
+###
+3.48.2 Was sind Probleme bei Regressionen mit Panel Data?
+-----
+Die Regression bezieht sich auf Variationen innerhalb der Gruppen, mit einem fixed effects Ansatz lassen sich Zeit konstante Unterschiede zwischen den Gruppen eliminieren
+###
+3.54.1 Gebe das Standardsetting eines DiD Ansatzes mit Treatment und Kontrollgruppe mit den Zeiträumen vor und nach dem Treatment? Gebe Regressionsgleichung und DD Schätzer an:
+-----
+Y = b0 + d0 after+ b1 treat+ d1 after*treat
+Dd Schätzer = (E[y|after,treat] - E[y|before,treat])-(E[y|after,contr] - E[y|before,contr])= d1
+###
+3.56.1 Was ist ein Beispiel für Kontrollvariablen in einem DiD setting?
+-----
+Bei vielen DiD Settings gibt es mehrere Treatment- und Kontrollgruppen, ihre generellen unterschiede sollten aus dem betrachteten unterschied rausgenommen werden
+###
+3.59.1 Welche ist die wichtigste Grundvoraussetzung in einem DiD Modell?
+-----
+Control und Treatment Gruppe haben vor dem Treatment eine Konstante Differenz, ihre Differenz in dieser Differenz ist nicht signifikant unterschiedlich von 0
+###
+3.60.1 Nenne zwei Effekte welche in einem DiD Setting das Ergebnis verschlechtern können?
+-----
+Die Kontrollgruppe könnte mitunter indirekt durch das Treatment beeinflusst werden
+Spill over effekte sind Übertragungseffekte zwischen den Gruppen, welche das Verhalten und so das Ergebnis verändern können
+###
+4.2.1 Beschreibe Aktuelle Trends der Kompensationsstrategien?
+-----
+Der Fokus liegt zunehmend auf der Effektivität von Arbeitnehmern und somit, wodurch diese gefördert wird. Technologischer Fortschritt hat den bedarf an talentierten Arbeitern gesteigert. Kompensation soll beiden Veränderungen nachkommen
+###
+4.5.1 Welche fünf allgemeinen Ziele verfolgt ein Kompensationssystem?
+-----
+Incentivierung und Motivation, Anziehen und Halten von Talent, Kosten effizient, Regulatorische Rahmenbedingungen eingehalten, Positives Bild als guter Arbeitgeber
+###
+4.7.1 Zu welchem Verdienst Element gehört der Stundenlohn?
+-----
+Basis Gehalt Untergruppe von Total Cash Comp
+###
+4.7.2 Zu welchem Verdienst Element gehört ein Jährlicher Bonus?
+-----
+Kurzzeitige variable Vergütung Untergruppe von Total Cash Comp
+###
+4.7.3 Zu welchem Verdienst Element gehören Stock Options?
+-----
+Langfristige Incentivierung Untergruppe von Total Direct Comp
+###
+4.7.4 Zu welchem Verdienst Element gehört Pensionskasse?
+-----
+Benefits Untergruppe von Total Remuneration
+###
+4.7.5 Zu welchem Verdienst Element gehört ein Firmenwagen?
+-----
+Nebeneinkünfte Untergruppe von Total Remuneration
+###
+4.7.6 Zu welchem Verdienst Element gehört eine gute Unternehmenskultur?
+-----
+Nicht finanzielle Verdienste Untergruppe von Total Rewards
+###
+Nenne und erkläre die vier Bestandteile einer Kompensationsstrategie?
+-----
+1.Arbeitsmarkt Positionierung, wie viel Zahlt mein Konkurrent, was bekommen andere Arbeiter im Unternehmen
+2.Leistungsbezug zu Gehalt, ist PP hier praktikabel und in welchem Maß
+3.Gehaltsfindung, über welches Verfahren wird ein Gehalt pro Arbeiter festgesetzt, Verhandlung, Benchmark etc
+4.Transparenz
+###
+4.10.1 Welche Informationen sollten für eine externe Gehalts Positionierung vorliegen?
+-----
+Wer ist der Markt, in dem ich mich vergleiche, wo liegen unterschiedliche Gehälter in dem Markt, wie möchte ich mich positionieren, wie stark ist die Nachfrage in dem Markt?
+###
+4.11.1 Worauf muss bei der internen Gehalts Positionierung geachtet werden?
+-----
+Was bekommen vergleichbare Jobs in meinem Unternehmen, wie lassen sich Ähnlichkeiten ermitteln?
+###
+4.13.1 Welche unterschiedlichen Möglichkeiten für PP gibt es?
+-----
+Jährlicher Bonus, Verkaufs Kommission, Einmalige Zahlungen, Aktien Optionen, Profitanteile, Performancemaß abhängiger Bonus, Pro Stück/Einheit Bonus, Team Bonus
+###
+4.15.1 Bei einem Jährlichen Bonus können unterschiedliche Metriken mit unterschiedlicher Tragweite verwendet werden, wovon hängt dies ab?
+-----
+Je weiter oben in der Hierarchie desto weiträumiger ist die Metrik gewählt, da höhere Positionen das Unternehmen allumfassender beeinflussen
+###
+4.16.1 Welchen Einfluss hat die Art des Jobs auf die Gestaltung von PP?
+-----
+Was ist der gewollte Output des Jobs, Wie gut lässt sich dieser allumfänglich messen, ist beispielsweise Teamwork wichtig, oder Experimentierfreudigkeit der Mitarbeiter
+###
+4.17.1 Eignet sich PP für Guardian oder Start Jobs eher, nenne Beispiele?
+-----
+Für Star Jobs, da hier Fehler weniger dramatisch sind und so die Experimentierfreudigkeit sowie Risiko Bereitschaft der Mitarbeiter von Vorteil sein kann, ein Beispiel könnte der R&D Sektor sein. Guardian Jobs sind das genaue Gegenteil, Fehler gilt es, um jeden Preis zu vermeiden, Pilot könnte ein Beispiel hierfür sein
+###
+4.19.1 Wie lässt sich die PP Variante Profit Sharing implementieren?
+-----
+Mitarbeiter bekommen Anteil der Firmengewinne, der festgelegte Gesamtanteil an den Gewinnen wird auf die Mitarbeiter nach einer relativen Metrik ausgeschüttet
+###
+In welchen Firmen sind LTI Pläne am häufigsten anzutreffen?
+-----
+In US-Firmen aufgrund der Equity Culture, in Börsennotierten Unternehmen, in sehr jungen Unternehmen
+###
+4.21.1Welche LTI Pläne gibt es neben Aktienbasierten Plänen?
+-----
+Cash Plans sind LTI Pläne, welche nicht auf Aktienbasieren ein Beispiel für einen Cash Plan ist, der Multi Year Bonus
+###
+4.24.1 Nenne Beispiele für unterschiedliche starke Strukturen bei der Gehaltsvergabe?
+-----
+Individuelle Verhandlung und Entscheidung stellen die geringste Struktur dar, Gehaltsbänder für unterschiedliche Jobs und Job Klassen hat die höchste Struktur und den geringsten Spielraum des Vorgesetzten
+###
+Welche Eckdaten sind wichtig beim Finden eines angemessenen Zahlungsspielraums für einen Job?
+-----
+Job Profil bzw. der Wert des Jobs in der Firma, Die Job Familie wie Branche oder Art der Tätigkeit, Lokalität des Jobs, da in unterschiedlichen Regionen andere Gehaltsstrukturen vorherrschen
+###
+4.30.1 Beschreibe Salary Bands?
+-----
+Salary Bands sind Gehaltsspannweiten denen Jobs nach Wert, Job Familie und Region zugeordnet sind, sie beschreiben das Verdienstpotenzial des Jobs. Sie überlappen sich üblicherweise, so dass Beförderungen nicht unbedingt zu einem Gehaltsanstieg führen, sondern mitunter nur zu einer Erhöhung des Potenzials
+###
+4.31.1 Was nennt man Progression im Bezug auf Salary Bands?
+-----
+Den Anstieg bzw. die Differenz der Midpoints
+###
+4.33.1 Was sind die Vor- und Nachteile von wenigen Salary Bands?
+-----
+Hohe Flexibilität, Einfachere Implementierung
+Weniger Kostenkontrolle, Ungenauere Rahmenbedingungen
+###
+Bei der Salary Band Positionierung spielen interne sowie externe Faktoren eine Rolle, welche sind das?
+-----
+Die Positionierung des Midpoints relativ zum Marktmedian zum einen und die Interne Konsistenz der Jobklassenbewertung, im Allgemeinen wird für beides ein Jobbewertungssystem benötigt, welches dabei hilft, die unterschiedlichen Anhaltspunkte zusammenzubringen
+###
+4.39.1 Was sind die Einsatzgebiete von Job Grading im Bezug auf die Mitarbeiter vergütung?
+-----
+Gewicht der Performance Metrik, Gehaltsbenchmark, Struktur des Salary Bands, LTI Berechtigung
+###
+4.39.2 Was soll Job Grading leisten? 
+-----
+Job Grading dient der Relativen Bewertung von Jobs innerhalb eines Unternehmens
+###
+4.40.1 Welche fünf Anwendungsmöglichkeiten hat Job Grading?
+-----
+Kompensationsstrategie, Performance Management, Kariere Planung, Organisatorische Effektivität, Erfolgs Planung
+###
+4.41.1 Nach welchen Kriterien wird eine Job Bewertung vorgenommen?
+-----
+Wie kritisch ist der Job für den Unternehmenserfolg
+Wie groß und damit mit wie viel Verantwortung geht der Job einher
+Welche Fähigkeiten und Talente sind für den Job nötig
+Wie komplex und vielschichtig ist der Job
+###
+4.44.1 Welche Transparenz Levels in Bezug auf Bezahlung und ihrer Begründung gibt es?
+-----
+Von keiner Kommunikation und Begründung, über Vorhandensein und Grobstruktur des Bezahlungsmodells, zusätzlich können Gehaltspannen und mehr Details genannt werden, in der transparentesten Form liegt das System offen für die Mitarbeiter
+###
+5.4.1 Wie hat sich das Kompensationssystem in der Bankenbranche durch die Krise 2008 verändert?
+-----
+Striktere Regeln zur Incentivierung von der EU erlassen, um Risiko zu verringern und Incentivierung eher auf langfristige Ziele hin
+###
+5.9.1 Wie ist im PE die Managerbezahlung strukturiert, um eine Incentivierung dieser zu erreichen?
+-----
+Zum einen gibt es eine Basiszahlung prozentual am Investitionskapital, zusätzlich erhält das Management ab einer gewissen Schranke einen Anteil der Profite, zuletzt sind PE Manager häufig mit eigenem Geld im Projekt investiert
+###
+Wie führen die Autoren die Randomisierung in dem Experiment durch? Wie zeigen die Autoren, dass die Randomisierung erfolgreich war? [4 P.]
+
+-----
+• Randomized Control Trial 
+	◦ Pair-Matching-Verfahren 
+	◦ 96 Paare mit ähnlichem Prognose. Umsatz 
+• Zufällige Zuordnung zu Gruppe
+
+
+
+Untersuchung auf signifikante Unterschiede zwischen den Gruppen
+Verschiedene Charakteristika verwendet (Anteil Mini-Jobber, mystery shopping score etc)
+-> keine
+###
+Friebel et al: In welcher Art von Städten und Ortschaften (groß, mittel, klein) reagieren die
+Teams am stärksten auf den Bonus? Wie erklären die Autoren das aus dem Agency Modell heraus? [4 P.]
+-----
+Städte, große Bevölkerungszahl
+Zu Stoßzeiten bildet sich schlangen, die schneller abgearbeitet werden können
+
+Agency Modell:
+• Bonuseffekt steigt, wenn Grenzertrag der Anstrengung besonders hoch ist!
+• Die Filialen in Großstädten haben besonders viele Gäste -> öfter Schlangen 
+• Über gute Kooperation & schnellen Service lassen sich schlangen reduzieren (=> hoher Grenzertrag)
+###
