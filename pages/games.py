@@ -1,5 +1,4 @@
 from streamlit_multipage import MultiPage
-import base64
 from PIL import Image
 
 def set_type(st, str_type):
