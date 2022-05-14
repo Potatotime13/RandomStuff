@@ -8,7 +8,7 @@ def set_type(st, str_type):
         st.session_state['page_game'] = 'default'
     st.session_state['page_game'] = str_type
     # gamestate := round:0 , points:0 , history_b:[]...
-    st.session_state['game_state'] = {'round':0, 'points':0, 'history_b':[], 'history_p':[]}
+    st.session_state['game_state'] = {'round':0, 'points':0, 'history_b':[], 'history_p':[], 'final':rn.randint(3,7)}
 
 def set_game_state(st, dict):
     # gestehen := 1
@@ -32,106 +32,109 @@ def bot(game_state):
 def game1(st, **state):
     st.subheader('Wiederholtes Gefangenendilemma')
     st.write(st.session_state['game_state']['round'])
-    if st.session_state['game_state']['round']>0:
-        st.write('dein Gegner hat letzte Runde',st.session_state['game_state']['history_b'])
-        st.write('du hast letzte Runde',st.session_state['game_state']['history_p'])
-    bot_decission = bot(st.session_state['game_state'])
-    components.html(
-    """
-        <div style="text-align: center"></div>
-    """,
-    height=100,)    
-    c1, c2, c3, c4 = st.columns((1,1,1,1))
-    with c1:
+    if st.session_state['game_state']['round']<st.session_state['game_state']['final']:
+        if st.session_state['game_state']['round']>0:
+            st.write('dein Gegner hat letzte Runde',st.session_state['game_state']['history_b'])
+            st.write('du hast letzte Runde',st.session_state['game_state']['history_p'])
         components.html(
-            """
-                <div style="text-align: center"> gestehen </div>
-            """,
-            height=100,
-        )
+        """
+            <div style="text-align: center"></div>
+        """,
+        height=100,)    
+        c1, c2, c3, c4 = st.columns((1,1,1,1))
+        with c1:
+            components.html(
+                """
+                    <div style="text-align: center"> gestehen </div>
+                """,
+                height=100,
+            )
+            components.html(
+                """
+                    <div style="text-align: center"> lügen </div>
+                """,
+                height=100,
+            )       
+        with c2:
+            components.html(
+                """
+                    <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
+                    </canvas>
+                    <script>
+                    var c = document.getElementById("Canvas1");
+                    var ctx = c.getContext("2d");
+                    ctx.moveTo(0, 70);
+                    ctx.lineTo(200, 0);
+                    ctx.stroke();
+                    ctx.font = "30px Arial";
+                    ctx.fillText("2", 20, 30);
+                    ctx.fillText("2", 160, 50);
+                    </script>
+                """,
+                height=100,
+            )
+            components.html(
+                """
+                    <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
+                    </canvas>
+                    <script>
+                    var c = document.getElementById("Canvas1");
+                    var ctx = c.getContext("2d");
+                    ctx.moveTo(0, 70);
+                    ctx.lineTo(200, 0);
+                    ctx.stroke();
+                    ctx.font = "30px Arial";
+                    ctx.fillText("3", 20, 30);
+                    ctx.fillText("0", 160, 50);
+                    </script>
+                """,
+                height=100,
+            )
+        c2.button('gestehen', key='coopb', on_click=set_game_state, args=(st, {'round':1, 'points':0, 'history_b':[bot(st.session_state['game_state'])], 'history_p':['gestehen']}))
+        with c3:
+            components.html(
+                """
+                    <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
+                    </canvas>
+                    <script>
+                    var c = document.getElementById("Canvas1");
+                    var ctx = c.getContext("2d");
+                    ctx.moveTo(0, 70);
+                    ctx.lineTo(200, 0);
+                    ctx.stroke();
+                    ctx.font = "30px Arial";
+                    ctx.fillText("0", 20, 30);
+                    ctx.fillText("3", 160, 50);
+                    </script>
+                """,
+                height=100,
+            )
+            components.html(
+                """
+                    <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
+                    </canvas>
+                    <script>
+                    var c = document.getElementById("Canvas1");
+                    var ctx = c.getContext("2d");
+                    ctx.moveTo(0, 70);
+                    ctx.lineTo(200, 0);
+                    ctx.stroke();
+                    ctx.font = "30px Arial";
+                    ctx.fillText("1", 20, 30);
+                    ctx.fillText("1", 160, 50);
+                    </script>
+                """,
+                height=100,
+            )
+        c3.button('lügen', key='defb', on_click=set_game_state, args=(st, {'round':1, 'points':0, 'history_b':[bot(st.session_state['game_state'])], 'history_p':['lügen']}))
         components.html(
-            """
-                <div style="text-align: center"> lügen </div>
-            """,
-            height=100,
-        )       
-    with c2:
-        components.html(
-            """
-                <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
-                </canvas>
-                <script>
-                var c = document.getElementById("Canvas1");
-                var ctx = c.getContext("2d");
-                ctx.moveTo(0, 70);
-                ctx.lineTo(200, 0);
-                ctx.stroke();
-                ctx.font = "30px Arial";
-                ctx.fillText("2", 20, 30);
-                ctx.fillText("2", 160, 50);
-                </script>
-            """,
-            height=100,
-        )
-        components.html(
-            """
-                <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
-                </canvas>
-                <script>
-                var c = document.getElementById("Canvas1");
-                var ctx = c.getContext("2d");
-                ctx.moveTo(0, 70);
-                ctx.lineTo(200, 0);
-                ctx.stroke();
-                ctx.font = "30px Arial";
-                ctx.fillText("3", 20, 30);
-                ctx.fillText("0", 160, 50);
-                </script>
-            """,
-            height=100,
-        )
-    c2.button('gestehen', key='coopb', on_click=set_game_state, args=(st, {'round':1, 'points':0, 'history_b':[bot(st.session_state['game_state'])], 'history_p':['gestehen']}))
-    with c3:
-        components.html(
-            """
-                <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
-                </canvas>
-                <script>
-                var c = document.getElementById("Canvas1");
-                var ctx = c.getContext("2d");
-                ctx.moveTo(0, 70);
-                ctx.lineTo(200, 0);
-                ctx.stroke();
-                ctx.font = "30px Arial";
-                ctx.fillText("0", 20, 30);
-                ctx.fillText("3", 160, 50);
-                </script>
-            """,
-            height=100,
-        )
-        components.html(
-            """
-                <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
-                </canvas>
-                <script>
-                var c = document.getElementById("Canvas1");
-                var ctx = c.getContext("2d");
-                ctx.moveTo(0, 70);
-                ctx.lineTo(200, 0);
-                ctx.stroke();
-                ctx.font = "30px Arial";
-                ctx.fillText("1", 20, 30);
-                ctx.fillText("1", 160, 50);
-                </script>
-            """,
-            height=100,
-        )
-    c3.button('lügen', key='defb', on_click=set_game_state, args=(st, {'round':1, 'points':0, 'history_b':[bot(st.session_state['game_state'])], 'history_p':['lügen']}))
-    components.html(
-    """
-        <div style="text-align: center"></div>
-    """,
-    height=100,)
+        """
+            <div style="text-align: center"></div>
+        """,
+        height=100,)
+    else:
+        st.write('Du hast',st.session_state['game_state']['points'],'punkte erzielt')
+        st.button('rerun')
     st.button('back', key='b3', on_click=set_type, args=(st, 'default'))
 
 
