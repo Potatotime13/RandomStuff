@@ -5,9 +5,26 @@ def set_type(st, str_type):
     if 'page_game' not in st.session_state:
         st.session_state['page_game'] = 'default'
     st.session_state['page_game'] = str_type
+    # gamestate := round:0 , points:0 , history:[]...
+    st.session_state['game_state'] = {}
+
+def set_game_state(st, dict):
+    for stat in dict:
+        pass
+
+def bot(game_state):
+    return 0
 
 def game1(st, **state):
-    st.subheader('Game1')
+    st.subheader('Wiederholtes Gefangenendilemma')
+    bot_decission = bot(st.session_state['game_state'])
+    c1, c2, c3, c4 = st.columns((1,1,1,1))
+    c2.write('1/1')
+    c2.write('1/3')
+    c2.button('gestehen')
+    c3.write('3/1')
+    c3.write('0/0')
+    c3.button('lügen')
     st.button('back', key='b3', on_click=set_type, args=(st, 'default'))
 
 
