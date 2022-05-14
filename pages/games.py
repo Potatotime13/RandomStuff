@@ -61,6 +61,11 @@ def game1(st, **state):
             height=100,
         )
     c3.button('lügen')
+    components.html(
+    """
+        <div style="text-align: center"></div>
+    """,
+    height=100,)
     st.button('back', key='b3', on_click=set_type, args=(st, 'default'))
 
 
