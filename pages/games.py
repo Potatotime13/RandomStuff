@@ -34,7 +34,7 @@ def game1(st, **state):
             height=100,
         )
     c2.button('gestehen')
-    with c2:
+    with c3:
         components.html(
             """
                 <div style="text-align: center"> 3/1 </div>
