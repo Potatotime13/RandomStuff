@@ -42,7 +42,6 @@ def game1(st, **state):
         components.html(
             """
                 <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
-                <div style="text-align: center"> 1/1 </div>
                 </canvas>
                 <script>
                 var c = document.getElementById("Canvas1");
@@ -60,7 +59,6 @@ def game1(st, **state):
         components.html(
             """
                 <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
-                <div style="text-align: center"> 1/1 </div>
                 </canvas>
                 <script>
                 var c = document.getElementById("Canvas1");
@@ -80,7 +78,6 @@ def game1(st, **state):
         components.html(
             """
                 <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
-                <div style="text-align: center"> 1/1 </div>
                 </canvas>
                 <script>
                 var c = document.getElementById("Canvas1");
@@ -98,7 +95,6 @@ def game1(st, **state):
         components.html(
             """
                 <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
-                <div style="text-align: center"> 1/1 </div>
                 </canvas>
                 <script>
                 var c = document.getElementById("Canvas1");
