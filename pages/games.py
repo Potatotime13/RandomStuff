@@ -30,6 +30,22 @@ def bot(game_state):
     return rn.choice(['gestehen','lügen'])
 
 def game1(st, **state):
+    def get_html(score_p, score_b):
+        html_string ="""
+                    <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
+                    </canvas>
+                    <script>
+                    var c = document.getElementById("Canvas1");
+                    var ctx = c.getContext("2d");
+                    ctx.moveTo(0, 70);
+                    ctx.lineTo(200, 0);
+                    ctx.stroke();
+                    ctx.font = "30px Arial";
+                    ctx.fillText(" """+str(score_b)+""" ", 20, 30);
+                    ctx.fillText(" """+str(score_p)+""" ", 160, 50);
+                    </script>
+                """
+
     st.subheader('Wiederholtes Gefangenendilemma')
     st.write(st.session_state['game_state']['round'])
     st.write(st.session_state['game_state']['final'])
@@ -62,20 +78,7 @@ def game1(st, **state):
             )       
         with c2:
             components.html(
-                """
-                    <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
-                    </canvas>
-                    <script>
-                    var c = document.getElementById("Canvas1");
-                    var ctx = c.getContext("2d");
-                    ctx.moveTo(0, 70);
-                    ctx.lineTo(200, 0);
-                    ctx.stroke();
-                    ctx.font = "30px Arial";
-                    ctx.fillText(" """+str(eq_h)+""" ", 20, 30);
-                    ctx.fillText(" """+str(eq_h)+""" ", 160, 50);
-                    </script>
-                """
+                    get_html(eq_h,eq_h)
                 ,
                 height=100,
             )
