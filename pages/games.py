@@ -41,11 +41,11 @@ def game1(st, **state):
     with c2:
         components.html(
             """
-                <canvas id="myCanvas" width="200" height="70" style="border:2px solid #000000;">
+                <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
                 <div style="text-align: center"> 1/1 </div>
                 </canvas>
                 <script>
-                var c = document.getElementById("myCanvas");
+                var c = document.getElementById("Canvas1");
                 var ctx = c.getContext("2d");
                 ctx.moveTo(0, 70);
                 ctx.lineTo(200, 0);
@@ -56,7 +56,16 @@ def game1(st, **state):
         )
         components.html(
             """
-                <div style="text-align: center"> 1/3 </div>
+                <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
+                <div style="text-align: center"> 1/1 </div>
+                </canvas>
+                <script>
+                var c = document.getElementById("Canvas1");
+                var ctx = c.getContext("2d");
+                ctx.moveTo(0, 70);
+                ctx.lineTo(200, 0);
+                ctx.stroke();
+                </script>
             """,
             height=100,
         )
@@ -64,13 +73,31 @@ def game1(st, **state):
     with c3:
         components.html(
             """
-                <div style="text-align: center"> 3/1 </div>
+                <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
+                <div style="text-align: center"> 1/1 </div>
+                </canvas>
+                <script>
+                var c = document.getElementById("Canvas1");
+                var ctx = c.getContext("2d");
+                ctx.moveTo(0, 70);
+                ctx.lineTo(200, 0);
+                ctx.stroke();
+                </script>
             """,
             height=100,
         )
         components.html(
             """
-                <div style="text-align: center"> 0/0 </div>
+                <canvas id="Canvas1" width="200" height="70" style="border:2px solid #000000;">
+                <div style="text-align: center"> 1/1 </div>
+                </canvas>
+                <script>
+                var c = document.getElementById("Canvas1");
+                var ctx = c.getContext("2d");
+                ctx.moveTo(0, 70);
+                ctx.lineTo(200, 0);
+                ctx.stroke();
+                </script>
             """,
             height=100,
         )
