@@ -20,6 +20,19 @@ def game1(st, **state):
     st.subheader('Wiederholtes Gefangenendilemma')
     bot_decission = bot(st.session_state['game_state'])
     c1, c2, c3, c4 = st.columns((1,1,1,1))
+    with c1:
+        components.html(
+            """
+                <div style="text-align: center"> gestehen </div>
+            """,
+            height=100,
+        )
+        components.html(
+            """
+                <div style="text-align: center"> lügen </div>
+            """,
+            height=100,
+        )       
     with c2:
         components.html(
             """
