@@ -1,23 +1,39 @@
 from streamlit_multipage import MultiPage
 import streamlit.components.v1 as components
 from PIL import Image
+import random as rn 
 
 def set_type(st, str_type):
     if 'page_game' not in st.session_state:
         st.session_state['page_game'] = 'default'
     st.session_state['page_game'] = str_type
-    # gamestate := round:0 , points:0 , history:[]...
-    st.session_state['game_state'] = {}
+    # gamestate := round:0 , points:0 , history_b:[]...
+    st.session_state['game_state'] = {'round':0, 'points':0, 'history_b':[], 'history_p':[]}
 
 def set_game_state(st, dict):
+    # gestehen := 1
+    # lügen := 0
+    if dict['history_b'][-1] == dict['history_p'][-1]:
+        if dict['history_b'][-1] == 'gestehen':
+            dict['points'] = 2
+        else:
+            dict['points'] = 1
+    elif dict['history_b'] == 'lügen':
+        dict['points'] = 0
+    else:
+        dict['points'] = 3
+
     for stat in dict:
-        pass
+        st.session_state['game_state'][stat] += dict[stat]
 
 def bot(game_state):
-    return 0
+    return rn.choice(['gestehen','lügen'])
 
 def game1(st, **state):
     st.subheader('Wiederholtes Gefangenendilemma')
+    st.write(st.session_state['game_state']['round'])
+    if st.session_state['game_state']['round']>0:
+        st.write('dein Gegner hat letzte Runde',st.session_state['game_state']['history_b'])
     bot_decission = bot(st.session_state['game_state'])
     components.html(
     """
@@ -73,7 +89,7 @@ def game1(st, **state):
             """,
             height=100,
         )
-    c2.button('gestehen')
+    c2.button('gestehen', key='coopb', on_click=set_game_state, args=(st, {'round':1, 'points':0, 'history_b':[bot_decission], 'history_p':['gestehen']}))
     with c3:
         components.html(
             """
@@ -109,7 +125,7 @@ def game1(st, **state):
             """,
             height=100,
         )
-    c3.button('lügen')
+    c3.button('lügen', key='defb', on_click=set_game_state, args=(st, {'round':1, 'points':0, 'history_b':[bot_decission], 'history_p':['lügen']}))
     components.html(
     """
         <div style="text-align: center"></div>
