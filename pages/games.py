@@ -41,7 +41,9 @@ def game1(st, **state):
     with c2:
         components.html(
             """
+                <canvas id="myCanvas" width="200" height="100" style="border:3px solid #000000;">
                 <div style="text-align: center"> 1/1 </div>
+                </canvas>
             """,
             height=100,
         )
