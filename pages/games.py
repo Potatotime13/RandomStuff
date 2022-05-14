@@ -50,6 +50,9 @@ def game1(st, **state):
                 ctx.moveTo(0, 70);
                 ctx.lineTo(200, 0);
                 ctx.stroke();
+                ctx.font = "30px Arial";
+                ctx.fillText("2", 10, 20);
+                ctx.fillText("2", 160, 50);
                 </script>
             """,
             height=100,
@@ -65,6 +68,9 @@ def game1(st, **state):
                 ctx.moveTo(0, 70);
                 ctx.lineTo(200, 0);
                 ctx.stroke();
+                ctx.font = "30px Arial";
+                ctx.fillText("3", 10, 20);
+                ctx.fillText("0", 160, 50);
                 </script>
             """,
             height=100,
@@ -82,6 +88,9 @@ def game1(st, **state):
                 ctx.moveTo(0, 70);
                 ctx.lineTo(200, 0);
                 ctx.stroke();
+                ctx.font = "30px Arial";
+                ctx.fillText("0", 10, 20);
+                ctx.fillText("3", 160, 50);
                 </script>
             """,
             height=100,
@@ -97,6 +106,9 @@ def game1(st, **state):
                 ctx.moveTo(0, 70);
                 ctx.lineTo(200, 0);
                 ctx.stroke();
+                ctx.font = "30px Arial";
+                ctx.fillText("1", 10, 20);
+                ctx.fillText("1", 160, 50);
                 </script>
             """,
             height=100,
