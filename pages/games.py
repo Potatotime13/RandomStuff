@@ -45,6 +45,7 @@ def game1(st, **state):
                     ctx.fillText(" """+str(score_p)+""" ", 160, 50);
                     </script>
                 """
+        return html_string
 
     st.subheader('Wiederholtes Gefangenendilemma')
     st.write(st.session_state['game_state']['round'])
