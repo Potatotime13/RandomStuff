@@ -34,6 +34,7 @@ def game1(st, **state):
     st.write(st.session_state['game_state']['round'])
     if st.session_state['game_state']['round']>0:
         st.write('dein Gegner hat letzte Runde',st.session_state['game_state']['history_b'])
+        st.write('du hast letzte Runde',st.session_state['game_state']['history_p'])
     bot_decission = bot(st.session_state['game_state'])
     components.html(
     """
@@ -89,7 +90,7 @@ def game1(st, **state):
             """,
             height=100,
         )
-    c2.button('gestehen', key='coopb', on_click=set_game_state, args=(st, {'round':1, 'points':0, 'history_b':[bot_decission], 'history_p':['gestehen']}))
+    c2.button('gestehen', key='coopb', on_click=set_game_state, args=(st, {'round':1, 'points':0, 'history_b':[bot(st.session_state['game_state'])], 'history_p':['gestehen']}))
     with c3:
         components.html(
             """
@@ -125,7 +126,7 @@ def game1(st, **state):
             """,
             height=100,
         )
-    c3.button('lügen', key='defb', on_click=set_game_state, args=(st, {'round':1, 'points':0, 'history_b':[bot_decission], 'history_p':['lügen']}))
+    c3.button('lügen', key='defb', on_click=set_game_state, args=(st, {'round':1, 'points':0, 'history_b':[bot(st.session_state['game_state'])], 'history_p':['lügen']}))
     components.html(
     """
         <div style="text-align: center"></div>
