@@ -41,14 +41,14 @@ def game1(st, **state):
     with c2:
         components.html(
             """
-                <canvas id="myCanvas" width="200" height="95" style="border:2px solid #000000;">
+                <canvas id="myCanvas" width="200" height="70" style="border:2px solid #000000;">
                 <div style="text-align: center"> 1/1 </div>
                 </canvas>
                 <script>
                 var c = document.getElementById("myCanvas");
                 var ctx = c.getContext("2d");
-                ctx.moveTo(0, 0);
-                ctx.lineTo(200, 95);
+                ctx.moveTo(0, 70);
+                ctx.lineTo(200, 0);
                 ctx.stroke();
                 </script>
             """,
