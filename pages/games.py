@@ -33,6 +33,10 @@ def game1(st, **state):
     st.subheader('Wiederholtes Gefangenendilemma')
     st.write(st.session_state['game_state']['round'])
     st.write(st.session_state['game_state']['final'])
+    best=3
+    worst=0
+    eq_h=2
+    eq_l=1
     if st.session_state['game_state']['round']<st.session_state['game_state']['final']:
         if st.session_state['game_state']['round']>0:
             st.write('dein Gegner hat letzte Runde',st.session_state['game_state']['history_b'])
@@ -68,10 +72,11 @@ def game1(st, **state):
                     ctx.lineTo(200, 0);
                     ctx.stroke();
                     ctx.font = "30px Arial";
-                    ctx.fillText("2", 20, 30);
-                    ctx.fillText("2", 160, 50);
+                    ctx.fillText(" """+str(eq_h)+""" ", 20, 30);
+                    ctx.fillText(" """+str(eq_h)+""" ", 160, 50);
                     </script>
-                """,
+                """
+                ,
                 height=100,
             )
             components.html(
@@ -85,8 +90,8 @@ def game1(st, **state):
                     ctx.lineTo(200, 0);
                     ctx.stroke();
                     ctx.font = "30px Arial";
-                    ctx.fillText("3", 20, 30);
-                    ctx.fillText("0", 160, 50);
+                    ctx.fillText(" """+str(best)+""" ", 20, 30);
+                    ctx.fillText(" """+str(worst)+""" ", 160, 50);
                     </script>
                 """,
                 height=100,
@@ -104,8 +109,8 @@ def game1(st, **state):
                     ctx.lineTo(200, 0);
                     ctx.stroke();
                     ctx.font = "30px Arial";
-                    ctx.fillText("0", 20, 30);
-                    ctx.fillText("3", 160, 50);
+                    ctx.fillText(" """+str(worst)+""" ", 20, 30);
+                    ctx.fillText(" """+str(best)+""" ", 160, 50);
                     </script>
                 """,
                 height=100,
@@ -121,8 +126,8 @@ def game1(st, **state):
                     ctx.lineTo(200, 0);
                     ctx.stroke();
                     ctx.font = "30px Arial";
-                    ctx.fillText("1", 20, 30);
-                    ctx.fillText("1", 160, 50);
+                    ctx.fillText(" """+str(eq_l)+""" ", 20, 30);
+                    ctx.fillText(" """+str(eq_l)+""" ", 160, 50);
                     </script>
                 """,
                 height=100,
@@ -135,7 +140,7 @@ def game1(st, **state):
         height=100,)
     else:
         st.write('Du hast',st.session_state['game_state']['points'],'punkte erzielt')
-        st.button('rerun')
+        st.button('rerun', key='r1', on_click=set_type, args=(st,'game1'))
     st.button('back', key='b3', on_click=set_type, args=(st, 'default'))
 
 
