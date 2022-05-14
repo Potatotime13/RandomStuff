@@ -32,6 +32,7 @@ def bot(game_state):
 def game1(st, **state):
     st.subheader('Wiederholtes Gefangenendilemma')
     st.write(st.session_state['game_state']['round'])
+    st.write(st.session_state['game_state']['final'])
     if st.session_state['game_state']['round']<st.session_state['game_state']['final']:
         if st.session_state['game_state']['round']>0:
             st.write('dein Gegner hat letzte Runde',st.session_state['game_state']['history_b'])
