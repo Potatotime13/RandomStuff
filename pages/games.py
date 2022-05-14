@@ -34,8 +34,19 @@ def game1(st, **state):
             height=100,
         )
     c2.button('gestehen')
-    c3.write('3/1')
-    c3.write('0/0')
+    with c2:
+        components.html(
+            """
+                <div style="text-align: center"> 3/1 </div>
+            """,
+            height=100,
+        )
+        components.html(
+            """
+                <div style="text-align: center"> 0/0 </div>
+            """,
+            height=100,
+        )
     c3.button('lügen')
     st.button('back', key='b3', on_click=set_type, args=(st, 'default'))
 
