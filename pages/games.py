@@ -7,12 +7,9 @@ def set_type(st, str_type):
     if 'page_game' not in st.session_state:
         st.session_state['page_game'] = 'default'
     st.session_state['page_game'] = str_type
-    # gamestate := round:0 , points:0 , history_b:[]...
     st.session_state['game_state'] = {'round':0, 'points':0, 'history_b':[], 'history_p':[], 'final':rn.randint(3,7)}
 
 def set_game_state(st, dict):
-    # gestehen := 1
-    # lügen := 0
     if dict['history_b'][-1] == dict['history_p'][-1]:
         if dict['history_b'][-1] == 'gestehen':
             dict['points'] = 2
@@ -105,7 +102,9 @@ def game1(st, **state):
 
 
 def game2(st, **state):
-    st.subheader('Game2')
+    st.subheader('Wiederholtes sequenzielles Spiel')
+    # TODO draw graph
+    # TODO clickable canvas ??
     st.button('back', key='b2', on_click=set_type, args=(st, 'default'))
 
 

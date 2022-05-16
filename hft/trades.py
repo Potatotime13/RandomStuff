@@ -1,4 +1,3 @@
-import numpy as np
 import datetime
 from orders import Order
 
