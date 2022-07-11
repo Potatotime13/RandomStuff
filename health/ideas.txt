@@ -1,0 +1,15 @@
+collect health data
+-> garmin connect api
+
+
+collect fitness data
+-> strava api
+
+
+collect productivity data 
+-> clickup api
+
+
+
+creating interface for additional information input
+-> webfrontend with loggin

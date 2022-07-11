@@ -7,10 +7,11 @@ import random as rn
 st.title('Klausur Generator CBEN')
 
 page = st.sidebar.selectbox('Seitenauswahl', ('Klausur','Aufgabe Hinzufügen', 'Developer Kram'))
+FILE = 'QuestionsHFT.txt'
 
 def klausur():
 
-    txt = open('Questions.txt', 'r',encoding='utf8').read()
+    txt = open(FILE, 'r',encoding='utf8').read()
 
     q_a = re.split('#*#', txt)
 
@@ -108,7 +109,7 @@ def klausur():
         exp_list[num] = st.expander(label='Lösung', expanded=False)
         exp_list[num].write(q_a_df.iloc[i,1])
         st.session_state.ans[num] = st.text_area('Antwort'+str(num), height=100, key='A'+str(num))
-    exercises()
+    #exercises()
 
 def add_task():
     st.write('Fragestellung mit Nummerierung im Format (Foliensatznummer).(Folie):')
@@ -116,7 +117,7 @@ def add_task():
     antwort = st.text_area('Antwort', height=100, key='A')
 
     def write_qa():
-        txt = open('Questions.txt', 'a',encoding='utf8')
+        txt = open(FILE, 'a',encoding='utf8')
         txt.write('\n'+fragestellung)
         txt.write('\n'+'-----')
         txt.write('\n'+antwort)
@@ -129,7 +130,7 @@ def add_task():
     st.button('Hinzufügen', on_click=write_qa)
 
 def save_updates():
-    with open('Questions.txt') as f:
+    with open(FILE) as f:
         st.download_button('Download QA', f)
 
 if page == 'Klausur':
