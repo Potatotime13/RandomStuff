@@ -1,24 +1,24 @@
-Hft fragen:
+ï»¿Hft fragen:
 ###
-1.6.1 Wegen welcher gründe geriet der Hochfrequenz Handel, bzw algo trading, in die kritik?
+1.6.1 Wegen welcher grÃ¼nde geriet der Hochfrequenz Handel, bzw algo trading, in die kritik?
 -----
-mehrere Flash Crashes in der Verangenheit rückten den hft in den fokus einiger kritiker, ihre kritik bezieht sich auf schwankungsverstärkung durch algos, sowie eine übervorteilung anderer marktteilnehmer
+mehrere Flash Crashes in der Verangenheit rÃ¼ckten den hft in den fokus einiger kritiker, ihre kritik bezieht sich auf schwankungsverstÃ¤rkung durch algos, sowie eine Ã¼bervorteilung anderer marktteilnehmer
 ###
-1.6.2 Welche gegenstimmten gibt es zur kritik gegenüber hft einsatz?
+1.6.2 Welche gegenstimmten gibt es zur kritik gegenÃ¼ber hft einsatz?
 -----
-preisgenauigkeit wird erhöht, im anleihenmarkt schafft ihr einsatz eine verarbeitungsmöglichkeit des gewaltigen volumens der anfragen
+preisgenauigkeit wird erhÃ¶ht, im anleihenmarkt schafft ihr einsatz eine verarbeitungsmÃ¶glichkeit des gewaltigen volumens der anfragen
 ###
-1.7.1 Welche drei übergruppen gibt es in der Marktwertschöpfungskette?
+1.7.1 Welche drei Ã¼bergruppen gibt es in der MarktwertschÃ¶pfungskette?
 -----
 Buy side: institutionelle investoren, retail investoren -> funds  
 Sell side: broker dealer
 Market: Stock market -> clearing -> settlement -> custody
 ###
-1.19.1 Durch welche 4 kerncharakterristika lässt sich ein marktplatz classifizieren?
+1.19.1 Durch welche 4 kerncharakterristika lÃ¤sst sich ein marktplatz classifizieren?
 -----
 - Produkte die gehandel werden
-- Funktion im Sinne der Aktien lebenszyklen: primärmarkt, sekundermark
-- Marktplatz typ: börse (regulierter markt), mtf, otf
+- Funktion im Sinne der Aktien lebenszyklen: primÃ¤rmarkt, sekundermark
+- Marktplatz typ: bÃ¶rse (regulierter markt), mtf, otf
 - Handelsplattform: paketthandel, elektronischer handel, telefon handel
 ###
 1.20.1 Welche 4 marktteilnehmergruppen gibt es?
@@ -26,59 +26,59 @@ Market: Stock market -> clearing -> settlement -> custody
 - investoren: retail, institutionell
 - marktzugang vermittler: broker (kein eigenhandel), broker dealer (eigenhandel)
 - marktvermittler: market maker, specialists, liquidity provider
-- infrastruktur: börsen, mtf, otf, hardware provider, info provider, alle nach handels einrichtungen
+- infrastruktur: bÃ¶rsen, mtf, otf, hardware provider, info provider, alle nach handels einrichtungen
 ###
 1.21.1 welche retailinvestortypen gibt es, bezogen auf ihr handelvorgehen?
 -----
 - durch intstitutionelle investoren geleitete investitionen, beispielsweise durch bankberater
-- eigenen entscheidungsfindung, meist über online broker
+- eigenen entscheidungsfindung, meist Ã¼ber online broker
 ###
-1.21.2 welche varianten von marktzugängen gibt es bei institutionellen?
+1.21.2 welche varianten von marktzugÃ¤ngen gibt es bei institutionellen?
 -----
-- über market intermediär(broker etc)
+- Ã¼ber market intermediÃ¤r(broker etc)
 - eigener marktzugang
 ###
-1.21.3 zu welchem zweck interagieren markt zugangs intermediäre häufig mit custodians?
+1.21.3 zu welchem zweck interagieren markt zugangs intermediÃ¤re hÃ¤ufig mit custodians?
 -----
-sie können transaktionen von mehreren kunden intern ausführen ohne einen marktplatz dazwischen zu nutzen, die ausführung muss durch custodians verifiziert werden
+sie kÃ¶nnen transaktionen von mehreren kunden intern ausfÃ¼hren ohne einen marktplatz dazwischen zu nutzen, die ausfÃ¼hrung muss durch custodians verifiziert werden
 ###
-1.21.4 Welche art von orders stellen markt intermediäre häufig?
+1.21.4 Welche art von orders stellen markt intermediÃ¤re hÃ¤ufig?
 -----
-Sie stellen liquidität bereit, platzieren somit meist quotes
+Sie stellen liquiditÃ¤t bereit, platzieren somit meist quotes
 ###
-1.22.1 was machen informations anbieter, und welche veränderungen der gesetzeslage haben ihr geschäft veränder?
+1.22.1 was machen informations anbieter, und welche verÃ¤nderungen der gesetzeslage haben ihr geschÃ¤ft verÃ¤nder?
 -----
 markt daten und zusatz infos sowie auswertungen werden verkauft, das liefern dieser daten ist stets von anderen leistungen zu trennen, in der eu wegen mifid2
 ###
-1.22.2 Was machen Börsen neben dem betreiben des marktplatzes noch?
+1.22.2 Was machen BÃ¶rsen neben dem betreiben des marktplatzes noch?
 -----
 Marktinfrastruktuservices, wie serveranbindungen, zugangsservices anbieten
 ###
 1.22.3 Beschreibe ECN / MTF
 -----
-Handelsplätze welche nicht als börse reguliert sind, gehören zu zb brokern oder dealern, Turquoise als bsp
+HandelsplÃ¤tze welche nicht als bÃ¶rse reguliert sind, gehÃ¶ren zu zb brokern oder dealern, Turquoise als bsp
 ###
 1.22.4 Welcher aufgabe gehen Software diensleister nach?
 -----
 Erstellung von front und backend software zum Handeln, unteranderem marktinterfaces
 ###
-1.23.1 Für was ist die CCP zuständig?
+1.23.1 FÃ¼r was ist die CCP zustÃ¤ndig?
 -----
-Tritt als zentraler vertragspartner für kauf und verkaufsseite auf, dabei wird der vertrag zwischen käufer und verkäufer gelöst und durch je einen mit der ccp ersetzt, soll ausfallrisiken und daraus erfolgende kettenreaktionen dämpfen
+Tritt als zentraler vertragspartner fÃ¼r kauf und verkaufsseite auf, dabei wird der vertrag zwischen kÃ¤ufer und verkÃ¤ufer gelÃ¶st und durch je einen mit der ccp ersetzt, soll ausfallrisiken und daraus erfolgende kettenreaktionen dÃ¤mpfen
 ###
-1.23.2 Für was sind Clearing Agents zuständig?
+1.23.2 FÃ¼r was sind Clearing Agents zustÃ¤ndig?
 -----
-Überprüft und matched trades und leitet sie zum settlement weiter
+ÃœberprÃ¼ft und matched trades und leitet sie zum settlement weiter
 ###
-1.23.3 Für was sind Settlement Agents zuständig?
+1.23.3 FÃ¼r was sind Settlement Agents zustÃ¤ndig?
 -----
-Für die umsetzung des geld und aktientransfers
+FÃ¼r die umsetzung des geld und aktientransfers
 ###
-1.23.4 Für was sind Custodians zuständig?
+1.23.4 FÃ¼r was sind Custodians zustÃ¤ndig?
 -----
-Verwaren geld und aktien für ihre clienten, können trades schnell ausführen durch das liefern von geld und aktien
+Verwaren geld und aktien fÃ¼r ihre clienten, kÃ¶nnen trades schnell ausfÃ¼hren durch das liefern von geld und aktien
 ###
-1.24.1 Welche drei marktphasen übergreifende strukturparameter von finanzmärkten gibt es?
+1.24.1 Welche drei marktphasen Ã¼bergreifende strukturparameter von finanzmÃ¤rkten gibt es?
 -----
 Produktspanne, level of market consolidation, elektronifizierung
 ###
@@ -86,39 +86,39 @@ Produktspanne, level of market consolidation, elektronifizierung
 -----
 information, order routing, matching, settlement
 ###
-1.24.3 Durch welche Parameter lässt sich die Matching Phase definieren?
+1.24.3 Durch welche Parameter lÃ¤sst sich die Matching Phase definieren?
 -----
 preisfindung und handelsfrequenz
 ###
-1.24.4 Durch welche Parameter lässt sich die Settlement Phase definieren?
+1.24.4 Durch welche Parameter lÃ¤sst sich die Settlement Phase definieren?
 -----
 durch die existenz von einem ccp und die settlement location
 ###
-1.25.1 Welche beiden übergeordnete Typen in bezug auf trading frequenz gibt es?
+1.25.1 Welche beiden Ã¼bergeordnete Typen in bezug auf trading frequenz gibt es?
 -----
-continuierlicher handel -> geringere liquiditäts aggregation
-periodische call auktionen -> gemeinsame ausführung der eingegangenen trades gegeben gefundenem preis, hohe liquiditätsdichte bei ausführung
+continuierlicher handel -> geringere liquiditÃ¤ts aggregation
+periodische call auktionen -> gemeinsame ausfÃ¼hrung der eingegangenen trades gegeben gefundenem preis, hohe liquiditÃ¤tsdichte bei ausfÃ¼hrung
 ###
 1.26.1 gibt es eine spread in call auktionen?
 -----
-nein die preise der ausführung sind homogen und entsprechen dem gefundenen auktionspreis für beide seiten
+nein die preise der ausfÃ¼hrung sind homogen und entsprechen dem gefundenen auktionspreis fÃ¼r beide seiten
 ###
 1.27.1 Wer zahlt im contionous trading den spread?
 -----
-der liquiditätsnehmer der eine order aus dem buch matched
+der liquiditÃ¤tsnehmer der eine order aus dem buch matched
 ###
-1.28.1 was zeichnet market maker märkte aus?
+1.28.1 was zeichnet market maker mÃ¤rkte aus?
 -----
-Alle ausführungen passieren mit einem oder mehreren market makern welche quotieren, der market maker verdient den spread
+Alle ausfÃ¼hrungen passieren mit einem oder mehreren market makern welche quotieren, der market maker verdient den spread
 ###
 1.29.1 Welche vorteile ergeben sich durch den einsatz elektronischer handelsysteme im vergleich zu parkett oder telefon handel?
 -----
 skaleneffekte, weil besser skalierbar
 anwendbar auf unterschiedliche produkte wenn einmal erstellt
-bequemer für händler, keine presenz nötig, automatisches tracking, weniger fehler
-zentrale orderbücher helfen beim bündeln von liquidität
+bequemer fÃ¼r hÃ¤ndler, keine presenz nÃ¶tig, automatisches tracking, weniger fehler
+zentrale orderbÃ¼cher helfen beim bÃ¼ndeln von liquiditÃ¤t
 ###
-2.6.1 welche der drei markt phasen sind relevant für den zu entwickelnden algo?
+2.6.1 welche der drei markt phasen sind relevant fÃ¼r den zu entwickelnden algo?
 -----
 info, order routing, matching
 ###
@@ -128,7 +128,7 @@ public , privat, insider
 ###
 2.8.1 Welche parameter definieren eine order in der order routing phase?
 -----
-börse, aktie, seite, menge, limit, zusätzliche bedingungen zu validität
+bÃ¶rse, aktie, seite, menge, limit, zusÃ¤tzliche bedingungen zu validitÃ¤t
 ###
 2.9.1 Wie werden die orders im seminar gematched?
 -----
@@ -136,32 +136,32 @@ Die orders werden direkt an den Markt gestellt und dort nach xetra matching im c
 ###
 2.11.1 Wie lautet die Marktdefinition nach Gomber?
 -----
-Gesamtheit der konkreten ausprägungen der Strukturmerkmale einer Marktstruktur im börslichen oder außerbörslichen wertpapierhandel
+Gesamtheit der konkreten ausprÃ¤gungen der Strukturmerkmale einer Marktstruktur im bÃ¶rslichen oder auÃŸerbÃ¶rslichen wertpapierhandel
 ###
-2.12.1 durch welche zwei Merkmale lässt sich das continous trading von xetra beschreiben?
+2.12.1 durch welche zwei Merkmale lÃ¤sst sich das continous trading von xetra beschreiben?
 -----
 - handel mit offenem orderbuch mit aggregierten volumina pro limitstufe
-- Kontinuierliche preisfindung durch matching nach preis/zeit Priorität
+- Kontinuierliche preisfindung durch matching nach preis/zeit PrioritÃ¤t
 ###
-2.14.1 Welche vier preisstufen beschreibungen für eine order gibt es abhängig von ihrer position im markt?
+2.14.1 Welche vier preisstufen beschreibungen fÃ¼r eine order gibt es abhÃ¤ngig von ihrer position im markt?
 -----
 behind the market, at the market, in the market, marketable
 ###
-2.14.1 Welche preise haben teilausführungen bei einer order welche mehrer stufen im orderbuch abräumt?
+2.14.1 Welche preise haben teilausfÃ¼hrungen bei einer order welche mehrer stufen im orderbuch abrÃ¤umt?
 -----
 das jeweilige limit der orderbuchstufe
 ###
-2.19.1 Für was werden Safeguards im continous trading eingesetzt?
+2.19.1 FÃ¼r was werden Safeguards im continous trading eingesetzt?
 -----
 zur unterbrechung von starken marktschwankungen, extended vola interuption als doppelter boden
 ###
 3.6.1 Woraus setzt sich eine Handelsstrategie zusammen?
 -----
-eine Handelsstrategie setzt sich aus einer Menge an regeln zusammen die zumeist an bedingungen und szenarien geknüpft sind
+eine Handelsstrategie setzt sich aus einer Menge an regeln zusammen die zumeist an bedingungen und szenarien geknÃ¼pft sind
 ###
 3.6.2 Was bedeutet der begriff roundtrip?
 -----
-roundtrip beschreibt die dauer eines informationszyklusses vom markt zum agenten und die potenzielle anweisung des agenten wieder zurück zum markt
+roundtrip beschreibt die dauer eines informationszyklusses vom markt zum agenten und die potenzielle anweisung des agenten wieder zurÃ¼ck zum markt
 ###
 3.7.1 Wie wird eine trading regel beschrieben?
 -----
@@ -173,9 +173,9 @@ menge, ordertyp und randbedingungen wie exposure
 ###
 3.8.1 Was beschreibt das konzept der Strategie Loop was sind seine Bestandteile?
 -----
-Strategie Loop beschreibt die schrittweise abfolge der aktionen welche bei jedem trigger ausgelöst werden: 
-Processing, was hat sich geändert, besteht aktionsbedarf
-Evaluation, was wäre in der aktuellen situation die beste aufstellung
+Strategie Loop beschreibt die schrittweise abfolge der aktionen welche bei jedem trigger ausgelÃ¶st werden: 
+Processing, was hat sich geÃ¤ndert, besteht aktionsbedarf
+Evaluation, was wÃ¤re in der aktuellen situation die beste aufstellung
 Implementation, umsetzen der gefundenen aufstellung
 ###
 3.11.1 was beschreibt Decission Support im trading kontext?
@@ -192,53 +192,53 @@ level 3 orderbuch, all levels, granulare orders, messages
 -----
 trade history und zusatzinfos wie trade status und qualifiers
 ###
-3.17.1 worin besteht die ähnlichkeit von level 1 und level 2 daten?
+3.17.1 worin besteht die Ã¤hnlichkeit von level 1 und level 2 daten?
 -----
 level 2 daten haben die selbe struktur, mit dem unterschied dass sie nicht nur das erste level enthalten
 ###
-3.18.1 wie lässt sich die performance des level 3 datenstreams verbessern?
+3.18.1 wie lÃ¤sst sich die performance des level 3 datenstreams verbessern?
 -----
-keine ganzen snapshots, nur hin und wieder ganzer snapshot und danach nur noch deltas, dadurch ist eine lokale nachbildung des snapshots möglich
+keine ganzen snapshots, nur hin und wieder ganzer snapshot und danach nur noch deltas, dadurch ist eine lokale nachbildung des snapshots mÃ¶glich
 ###
 3.19.1 was ist die definition von backtesting?
 -----
 backtesting ist eine hypothtische performance auswertung auf historischen daten
 ###
-3.19.2 für welche strategien ist ein backtesting besonders einfach, für welche schwieriger?
+3.19.2 fÃ¼r welche strategien ist ein backtesting besonders einfach, fÃ¼r welche schwieriger?
 -----
-für low frequency strats ist es einfacher, da hier markt mikrostrukturen und market impacts weniger relevant sind, für hft strats wird ein realistisches backtesting aufwendiger
+fÃ¼r low frequency strats ist es einfacher, da hier markt mikrostrukturen und market impacts weniger relevant sind, fÃ¼r hft strats wird ein realistisches backtesting aufwendiger
 ###
 3.25.1 welche ist die einfachste backtesting methode?
 -----
-ohlcv replay, market impact ignoriert, filling ignoriert, dafür schnell zu ermitteln aber zu ungenau
+ohlcv replay, market impact ignoriert, filling ignoriert, dafÃ¼r schnell zu ermitteln aber zu ungenau
 ###
 3.26.1 Wie lassen sich level 1 bzw level 2 daten in einem einfachen fill model verwenden?
 -----
-event basierte order execution -> führe order aus wenn sie marketable ist zu den entsprechenden preisen
+event basierte order execution -> fÃ¼hre order aus wenn sie marketable ist zu den entsprechenden preisen
 ###
-3.27.1 Wie kann eine Matching Engine beim backtesting helfen für mehr realismus zu sorgen?
+3.27.1 Wie kann eine Matching Engine beim backtesting helfen fÃ¼r mehr realismus zu sorgen?
 -----
-Eine Matching Engine kann helfen die Preis Zeit prio zu berücksichtigen, ein market impact kann nicht simuliert werden, da sich die simulierten orders in einem parallellen buch befinden
+Eine Matching Engine kann helfen die Preis Zeit prio zu berÃ¼cksichtigen, ein market impact kann nicht simuliert werden, da sich die simulierten orders in einem parallellen buch befinden
 ###
-3.28.1 welche Gefahr kann bestehen wenn die simulierten orders im buch geführt werden?
+3.28.1 welche Gefahr kann bestehen wenn die simulierten orders im buch gefÃ¼hrt werden?
 -----
-das buch kann sich nach und nach von einem realistischen orderbuchzustand entfernen und so die ergebnisse verfälschen
+das buch kann sich nach und nach von einem realistischen orderbuchzustand entfernen und so die ergebnisse verfÃ¤lschen
 ###
-3.28.2 wie kann der market impact durch das mitführen der simulierten orders im orderbuch erreicht werden?
+3.28.2 wie kann der market impact durch das mitfÃ¼hren der simulierten orders im orderbuch erreicht werden?
 -----
-indem das orderbuch zusätzlich zu den simulationsorders realistische passende orders hinzugefügt bekommt die es in einem realistischen zustand halten, trotz der simulationsorders
+indem das orderbuch zusÃ¤tzlich zu den simulationsorders realistische passende orders hinzugefÃ¼gt bekommt die es in einem realistischen zustand halten, trotz der simulationsorders
 ###
 3.29.1 Was beschreibt generative backtesting?
 -----
-generative backtesting beschreibt die simulation eines orderbuchs bei der auf historischen daten basierend ein orderbuch generiert wird, dabei werden auch die simulierten orders berücksichtigt, so soll ein insgesamt zusammenhängender zustand erzeugt werden
+generative backtesting beschreibt die simulation eines orderbuchs bei der auf historischen daten basierend ein orderbuch generiert wird, dabei werden auch die simulierten orders berÃ¼cksichtigt, so soll ein insgesamt zusammenhÃ¤ngender zustand erzeugt werden
 ###
 3.30.1 welches sind die 7 annahmen welche zu unserem backtesting gemacht werden?
 -----
-Keine Auktionen, kein market impact, price time wird befolgt, nur market und limit orders, transaktionskosten konstant und pro trade, es gibt ein statisches exposure limit, latenz ist künstlich vor jedes order einstellen hinzugefügt
+Keine Auktionen, kein market impact, price time wird befolgt, nur market und limit orders, transaktionskosten konstant und pro trade, es gibt ein statisches exposure limit, latenz ist kÃ¼nstlich vor jedes order einstellen hinzugefÃ¼gt
 ###
-3.31.1 welche backtesting pitfalls sollten berücksichtigt werden?
+3.31.1 welche backtesting pitfalls sollten berÃ¼cksichtigt werden?
 -----
-insample overfit, transaktions kosten sind wichtig für profitabilität, exposure sollte immer limitiert sein, man muss immer mit realistischen latenzen rechnen
+insample overfit, transaktions kosten sind wichtig fÃ¼r profitabilitÃ¤t, exposure sollte immer limitiert sein, man muss immer mit realistischen latenzen rechnen
 ###
 3.34.1 denke dir eine lambda function und eine decorator function aus?
 -----
@@ -255,9 +255,9 @@ def hello():
 
 hello = decorate_it(hello)
 ###
-3.39.1 was löst die function market.update aus?
+3.39.1 was lÃ¶st die function market.update aus?
 -----
-update fügt buchzustandsdifferenzen dem posttrade market state hinzu, posttrade – trade ergibt einen pretrade zustand der genutzt wird um historische trades durch agent trades auszutauschen
+update fÃ¼gt buchzustandsdifferenzen dem posttrade market state hinzu, posttrade â€“ trade ergibt einen pretrade zustand der genutzt wird um historische trades durch agent trades auszutauschen
 ###
 3.40.1 was macht market.match()
 -----
@@ -269,66 +269,66 @@ generator, rand generator of similar episodes
 broadcast, same time different day
 lsit, each list entry a backtestrun
 ###
-3.57.1 was ist das problem bei einer midpoint abhängigen reaktion auf den markt?
+3.57.1 was ist das problem bei einer midpoint abhÃ¤ngigen reaktion auf den markt?
 -----
-trades passieren immer zum best bid oder ask nicht zum midpoint, eventuell überschätzung der situation
+trades passieren immer zum best bid oder ask nicht zum midpoint, eventuell Ã¼berschÃ¤tzung der situation
 ###
 3.57.2 warum ist ein stop loss wichtig?
-Wenn eine strategie sich aufschaukelt kann es zu großen verlusten kommen, ab einem bestimmten loss sollte die strategie geschlossen werden um schlimmeres zu verhindern
+Wenn eine strategie sich aufschaukelt kann es zu groÃŸen verlusten kommen, ab einem bestimmten loss sollte die strategie geschlossen werden um schlimmeres zu verhindern
 ###
 3.64.1 was kann ein problem bei volumen orientierung mit hilfe von num_shares sein?
 -----
-tendenziell ungenauer da volumen oft preisabhängig gemessen wird
+tendenziell ungenauer da volumen oft preisabhÃ¤ngig gemessen wird
 ###
 3.64.2 warum sind market orders nur ein ausweg in letzter not?
 -----
-hohe implizite kosten bei ausführung, lieber marketable da kosten kontrollierbarer
+hohe implizite kosten bei ausfÃ¼hrung, lieber marketable da kosten kontrollierbarer
 ###
-4.4.1 zu welchem teil der finanzmarktsektoren gehören broker und market maker?
+4.4.1 zu welchem teil der finanzmarktsektoren gehÃ¶ren broker und market maker?
 -----
 secondary markets
 ###
 4.4.2 welche drittanbieter services sind in diesem Seminar relevant?
 -----
-research, market data, middleware und ähnliche, cloud services
+research, market data, middleware und Ã¤hnliche, cloud services
 ###
 4.6.1 welche drei punkte beschreiben einen broker?
 -----
-investment service provider, marktzugangs intermediär, kauf und verkauf für kunden auf eigenen namen
+investment service provider, marktzugangs intermediÃ¤r, kauf und verkauf fÃ¼r kunden auf eigenen namen
 ###
-4.10.1 was sind die hauptprobleme von institutionellen brokern in näherer vergangenheit?
+4.10.1 was sind die hauptprobleme von institutionellen brokern in nÃ¤herer vergangenheit?
 -----
 geringere commissions, unbundling von research, mehr monitoring von kostenstruktur
 ###
-4.11.1 welche veränderung bei den ausführungs gebühren haben sich durch die mifid2 ergeben?
+4.11.1 welche verÃ¤nderung bei den ausfÃ¼hrungs gebÃ¼hren haben sich durch die mifid2 ergeben?
 -----
 niedrigere raten, auch weniger high touch trading
 ###
-4.16.1 warum wird die broker dealer konzentration im aktiengeschäft immer stärker?
+4.16.1 warum wird die broker dealer konzentration im aktiengeschÃ¤ft immer stÃ¤rker?
 -----
-hoher preisdruck und abspaltung von ehemals profitablem geschäftszweig des info businesses
+hoher preisdruck und abspaltung von ehemals profitablem geschÃ¤ftszweig des info businesses
 ###
-4.18.1 was ist mit der entwicklung gemeint dass die technologie die wertschöpfungskette im finanzmarktwesen hinaufgeht?
+4.18.1 was ist mit der entwicklung gemeint dass die technologie die wertschÃ¶pfungskette im finanzmarktwesen hinaufgeht?
 -----
-elektronisches und vor allem algo trading wird immer relevanter, erst für die börse, dann die sell side und nun auch die buy side bis hin zu self directed privatperson
+elektronisches und vor allem algo trading wird immer relevanter, erst fÃ¼r die bÃ¶rse, dann die sell side und nun auch die buy side bis hin zu self directed privatperson
 ###
-4.20.1 wer sind die übergruppen kunden von inst. Brokern?
+4.20.1 wer sind die Ã¼bergruppen kunden von inst. Brokern?
 -----
 Banken, Fonds, Versicherungen, Organisationen und Unternehmen
 ###
 4.22.1 Was ist ein Global diversified IB?
 -----
-zugang zu den allen relevanten märkten, kunden sind fonds full service broker und segmenten experten, sehr breit aufgestellt
+zugang zu den allen relevanten mÃ¤rkten, kunden sind fonds full service broker und segmenten experten, sehr breit aufgestellt
 ###
 4.23.1 was ist ein full service broker?
 -----
-experte in nationalen / abgegrenzten märkten, kleine und mittlere kunden wie private banken und öffentlicher sektor, spezialisiert auf markt und kunden mit entsprechender expertise
+experte in nationalen / abgegrenzten mÃ¤rkten, kleine und mittlere kunden wie private banken und Ã¶ffentlicher sektor, spezialisiert auf markt und kunden mit entsprechender expertise
 ###
 4.24.1 was sind Agency Only broker?
 -----
-in allen märkten activ, kunde sind full service broker und IB wie auch andere großkunden, vor allem aktiv in aktien und derivaten, machen order routing, DMA -> direct market access
+in allen mÃ¤rkten activ, kunde sind full service broker und IB wie auch andere groÃŸkunden, vor allem aktiv in aktien und derivaten, machen order routing, DMA -> direct market access
 ###
-4.25.1 was machen segment experten für cash equities?
+4.25.1 was machen segment experten fÃ¼r cash equities?
 -----
 market making, kunden sind full service broker oder ifc, gutes beispiel ist L&S
 ###
@@ -338,30 +338,30 @@ derivate experten
 ###
 4.27.1 was macht ein inter dealer broker?
 -----
-kunden sind global diversified und andere großkunden, sind für die suche von transaktionspartnern zwischen brokern da, aggieren in otc
+kunden sind global diversified und andere groÃŸkunden, sind fÃ¼r die suche von transaktionspartnern zwischen brokern da, aggieren in otc
 ###
 4.32.1 wie kann eine block execution bzw otc trade durch einen broker abgewickelt werden?
 -----
 1 kontaktieren anderer broker nach passendem counterpart
-2 matching gegen eigenen kunden wenn modalitäten passen
+2 matching gegen eigenen kunden wenn modalitÃ¤ten passen
 ###
-4.33.1 unter welchen umständen führt ein broker dealer eine order gegen das eigene kapital aus?
+4.33.1 unter welchen umstÃ¤nden fÃ¼hrt ein broker dealer eine order gegen das eigene kapital aus?
 -----
-sehr große order, illiquides underlying, portfolio trades, hohe sofortigkeit nötig
-Der broker dealer geht hier bei ein risiko ein was er bezahl bekommen möchte
+sehr groÃŸe order, illiquides underlying, portfolio trades, hohe sofortigkeit nÃ¶tig
+Der broker dealer geht hier bei ein risiko ein was er bezahl bekommen mÃ¶chte
 ###
 4.39.1 was sind DMA und SMA?
 -----
-Direct market access, broker gibt kunden möglichkeit über ihre anbindung an den markt zu treten
-Sponsored Market Access, LSE beispiel, kunde sitzt in der börse für hohes tempo, broker haftet und kontrolliert
+Direct market access, broker gibt kunden mÃ¶glichkeit Ã¼ber ihre anbindung an den markt zu treten
+Sponsored Market Access, LSE beispiel, kunde sitzt in der bÃ¶rse fÃ¼r hohes tempo, broker haftet und kontrolliert
 ###
-4.42.1 wer ist in der eu für die bestmögliche Ausführung verantwortlich?
+4.42.1 wer ist in der eu fÃ¼r die bestmÃ¶gliche AusfÃ¼hrung verantwortlich?
 -----
 die investment firma, mifid2 art 27
 ###
-4.43.1 wer ist in den usa für eine bestmögliche Ausführung verantwortlich?
+4.43.1 wer ist in den usa fÃ¼r eine bestmÃ¶gliche AusfÃ¼hrung verantwortlich?
 -----
-RegNMS, consolidated tape, die börsen sind dafür verantwortlich
+RegNMS, consolidated tape, die bÃ¶rsen sind dafÃ¼r verantwortlich
 ###
 4.47.1 was sind die 4 generationen von algo trading?
 -----
@@ -370,21 +370,21 @@ RegNMS, consolidated tape, die börsen sind dafür verantwortlich
 3 adaptive to market endogenous infos
 4 adaptive to market exogenous infos
 ###
-4.48.1 nenne beispiele für markt endogene algos?
+4.48.1 nenne beispiele fÃ¼r markt endogene algos?
 -----
 vwap, twap, volume, market open/close
 ###
 4.49.1 wie funktioniert der vwap algo?
 -----
-wenn der markt vwap unter dem eigenen ist, handle moderat, wenn der aktuelle preis zu keiner Verbesserung führt, wenn der eigene vwap besser steht, kaufe aggressiver
+wenn der markt vwap unter dem eigenen ist, handle moderat, wenn der aktuelle preis zu keiner Verbesserung fÃ¼hrt, wenn der eigene vwap besser steht, kaufe aggressiver
 ###
 4.51.1 wie funktioniert der twap algo?
 -----
-splitten der order, linear über die zeit, dadurch rein zeitabhängig
+splitten der order, linear Ã¼ber die zeit, dadurch rein zeitabhÃ¤ngig
 ###
-4.52.1 nenne ein beispiel für order centric algos und erkläre es?
+4.52.1 nenne ein beispiel fÃ¼r order centric algos und erklÃ¤re es?
 -----
-implementation shortfall, vergleich der ausführung zu midpoint als die order eintraf, dringlichkeits abhängig
+implementation shortfall, vergleich der ausfÃ¼hrung zu midpoint als die order eintraf, dringlichkeits abhÃ¤ngig
 ###
 4.53.1 worauf reagiert die dritte generation der trading algos?
 -----
@@ -394,54 +394,54 @@ auf markt dynamiken, sie passt die strategie immer wieder gegeben der marktsitua
 -----
 aufbauend auf den darunter liegenden generationen nutzen sie zusatzinformationene wie news
 ###
-4.59.1 welchen zweck erfüllen dark pools?
+4.59.1 welchen zweck erfÃ¼llen dark pools?
 -----
-das annonyme finden einer gegenpartei bei großen orders ohne umwege für mehrere broker und marktplätze
+das annonyme finden einer gegenpartei bei groÃŸen orders ohne umwege fÃ¼r mehrere broker und marktplÃ¤tze
 ###
-4.60.1 was dient einem dark pool als ausführungspreis orientierung?
+4.60.1 was dient einem dark pool als ausfÃ¼hrungspreis orientierung?
 -----
-der markt midpoint wird für die preisbestimmung verwendet, danach preis / zeit prio für ausführungsreihenfolge
+der markt midpoint wird fÃ¼r die preisbestimmung verwendet, danach preis / zeit prio fÃ¼r ausfÃ¼hrungsreihenfolge
 ###
 4.66.1 um den wachsenden volumina in dark pools entgegen zu wirken?
 -----
-es wurde ein volumen cap eingeführt bei dem das volumen pro pool auf 4% des jahresvolumens gesetzt wurde und für alle pools insgesamt auf 8%
--> hierzu wird eine änderung kommen bei der es dann nur noch den gesamt cap gibt, dann aber 7%
+es wurde ein volumen cap eingefÃ¼hrt bei dem das volumen pro pool auf 4% des jahresvolumens gesetzt wurde und fÃ¼r alle pools insgesamt auf 8%
+-> hierzu wird eine Ã¤nderung kommen bei der es dann nur noch den gesamt cap gibt, dann aber 7%
 ###
-4.69.1 welchen work around haben sich die dark pool betreiber überlegt um die beschränkung zu umgehen?
+4.69.1 welchen work around haben sich die dark pool betreiber Ã¼berlegt um die beschrÃ¤nkung zu umgehen?
 -----
-periodic auctions, wenn zwei orders zueinander passen in einem verdeckten orderbuch wird eine mikro auktion durchgeführt von 100ms, dadurch kaum zeit für andere auf den trade einfluss zu nehmen
+periodic auctions, wenn zwei orders zueinander passen in einem verdeckten orderbuch wird eine mikro auktion durchgefÃ¼hrt von 100ms, dadurch kaum zeit fÃ¼r andere auf den trade einfluss zu nehmen
 ###
-4.80.1 was bedeutet research unbundeling und wie hat sich die gesetzgebung hierzu kürzlich verändert?
+4.80.1 was bedeutet research unbundeling und wie hat sich die gesetzgebung hierzu kÃ¼rzlich verÃ¤ndert?
 -----
 es beschreibt das trennen von trading und research services und damit eine getrennte kostenstruktur
-seit 2022 gilt das unbundeling nur noch für aktien mit hohem market cap, für firmen kleiner einer milliarde darf wieder gebundled werden
+seit 2022 gilt das unbundeling nur noch fÃ¼r aktien mit hohem market cap, fÃ¼r firmen kleiner einer milliarde darf wieder gebundled werden
 ###
-4.85.1 wie hängen market cap und hft aktivität miteinander zusammen?
+4.85.1 wie hÃ¤ngen market cap und hft aktivitÃ¤t miteinander zusammen?
 -----
 je mehr market cap desto mehr hft
 ###
 4.87.1 wie grenzt sich AT von HFT ab?
 -----
-Erreichen einer Benchmark, position länger halten über tage wochen etc, abarbeiten von aufträgen, minimierung von market impact
+Erreichen einer Benchmark, position lÃ¤nger halten Ã¼ber tage wochen etc, abarbeiten von auftrÃ¤gen, minimierung von market impact
 ###
 4.87.2 wie grenzt sich HFT von AT ab?
 -----
 viele schnelle orders und trades, beide marktseiten, niedrige positionen aufbauen, vor allem zwischen tagen kaum exposure, geringe latenz besonders wichtig
 ###
-4.91.1 welchen effekt haben AT und HFT auf markt qualität und in welchen dimensionen wird diese typischerweise gemessen?
+4.91.1 welchen effekt haben AT und HFT auf markt qualitÃ¤t und in welchen dimensionen wird diese typischerweise gemessen?
 -----
-Markt Qualität dims: liquidität, vola, preisfindung
-algos tragen zu höherer liquidität und zu einer besseren preisfindung bei
+Markt QualitÃ¤t dims: liquiditÃ¤t, vola, preisfindung
+algos tragen zu hÃ¶herer liquiditÃ¤t und zu einer besseren preisfindung bei
 ###
-4.101.1 warum sind niedrige latenzen so wichtig für market maker?
+4.101.1 warum sind niedrige latenzen so wichtig fÃ¼r market maker?
 -----
-schnellerer risiko transfer durch rechtzeitiges order canceln, mehr liquidität kann bereitgestellt werden und der spread reduziert werden, weil niegrigeres risiko
+schnellerer risiko transfer durch rechtzeitiges order canceln, mehr liquiditÃ¤t kann bereitgestellt werden und der spread reduziert werden, weil niegrigeres risiko
 ###
-4.107.1 was sind die 4 blöcke der regulation zu AT/HFT durch die mifid2?
+4.107.1 was sind die 4 blÃ¶cke der regulation zu AT/HFT durch die mifid2?
 -----
 Definition von AT und HFT: 
       AT: Computer handel ohne menschliche intervention
-     HFT: AT basierend mit hoher frequenz und minimaler latenz, örtliche anbindung an die börse
-Lizensierungs Bedingungen: AT und HFT erst seit mifid 2 unter regulierung, own account regel eingeschränkt worden, gilt nicht für obige
-Organisatorische Vorschriften: risiko controll systeme pflicht, informations pflicht an controllstellen über verwendete algos bzw aktionshistorie
-Börsen anpassungen: systeme müssen resilient sein wegen hoher anfrage last, error handling muss vorhanden sein damit preise nicht aufgrund von fehlern beliebig schwanken können, flags müssen bei trades gesetzt werden wenn es ein algo war
+     HFT: AT basierend mit hoher frequenz und minimaler latenz, Ã¶rtliche anbindung an die bÃ¶rse
+Lizensierungs Bedingungen: AT und HFT erst seit mifid 2 unter regulierung, own account regel eingeschrÃ¤nkt worden, gilt nicht fÃ¼r obige
+Organisatorische Vorschriften: risiko controll systeme pflicht, informations pflicht an controllstellen Ã¼ber verwendete algos bzw aktionshistorie
+BÃ¶rsen anpassungen: systeme mÃ¼ssen resilient sein wegen hoher anfrage last, error handling muss vorhanden sein damit preise nicht aufgrund von fehlern beliebig schwanken kÃ¶nnen, flags mÃ¼ssen bei trades gesetzt werden wenn es ein algo war
