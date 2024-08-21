@@ -94,6 +94,27 @@ class QuantumConv2d(nn.Module):
         return out
 
 
+class LeNet(nn.Module):
+    def __init__(self):
+        super(LeNet, self).__init__()
+        self.conv1 = nn.Conv2d(1, 6, 5, padding=2)
+        self.conv2 = nn.Conv2d(6, 16, 5)
+        self.fc1 = nn.Linear(16*4*4, 120)
+        self.fc2 = nn.Linear(120, 84)
+        self.fc3 = nn.Linear(84, 10)
+    
+    def forward(self, x):
+        x = torch.relu(self.conv1(x))
+        x = torch.max_pool2d(x, 2, 2)
+        x = torch.relu(self.conv2(x))
+        x = torch.max_pool2d(x, 2, 2)
+        x = x.view(-1, 16*4*4)
+        x = torch.relu(self.fc1(x))
+        x = torch.relu(self.fc2(x))
+        x = torch.softmax(self.fc3(x), dim=-1)
+        return x
+
+
 class QuantumConvNet(nn.Module):
     def __init__(self):
         super(QuantumConvNet, self).__init__()
@@ -116,19 +137,20 @@ class QuantumConvNet(nn.Module):
 class ConvNet(nn.Module):
     def __init__(self):
         super().__init__()
-        self.conv1 = nn.Conv2d(1, 1, 2, 2)
+        self.conv1 = nn.Conv2d(1, 1, 2, 2, 2)
         self.conv2 = nn.Conv2d(1, 1, 2, 2)
-        self.fc1 = nn.Linear(49, 10)
+        self.conv3 = nn.Conv2d(1, 4, 2, 2)
+        self.fc1 = nn.Linear(64, 10)
 
     def forward(self, x):
         x = torch.relu(self.conv1(x))
         x = torch.relu(self.conv2(x))
+        x = torch.relu(self.conv3(x))
         x = x.flatten(1)
         x = torch.softmax(self.fc1(x), dim=-1)
         return x
 
 #%%
-
 
 transform = transforms.Compose([transforms.ToTensor(),
                               transforms.Normalize((0.5,), (0.5,)),
@@ -136,17 +158,17 @@ transform = transforms.Compose([transforms.ToTensor(),
 
 trainset = datasets.MNIST('./', download=True, train=True, transform=transform)
 # cut dataset to 1000 samples
-trainset.data = trainset.data[:100]
+trainset.data = trainset.data[:10000]
 valset = datasets.MNIST('./', download=True, train=False, transform=transform)
 # cut dataset to 100 samples
-valset.data = valset.data[:10]
+valset.data = valset.data[:1000]
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=10, shuffle=True)
 valloader = torch.utils.data.DataLoader(valset, batch_size=10, shuffle=True)
 
 net = ConvNet()
 
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(net.parameters(), lr=0.001)
+optimizer = optim.Adam(net.parameters(), lr=0.01)
 
 for epoch in tqdm(range(10)):
     running_loss = []
@@ -164,13 +186,25 @@ for epoch in tqdm(range(10)):
     print(f'Epoch: {epoch}, Loss: {np.mean(running_loss)}')
     running_loss = []
 
+    # Validation
+    correct = 0
+    total = 0
+    with torch.no_grad():
+        for X_batch, y_batch in valloader:
+            outputs = net(X_batch)
+            _, predicted = torch.max(outputs.data, 1)
+            total += y_batch.size(0)
+            correct += (predicted == y_batch).sum().item()
+
+    print(f'Accuracy: {100 * correct / total}')
+
 print('Finished Training')
 
 #%%
 
 qnet = QuantumConvNet()
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(qnet.parameters(), lr=0.001)
+optimizer = optim.Adam(qnet.parameters(), lr=0.01)
 
 for epoch in tqdm(range(10)):
     running_loss = []
@@ -188,4 +222,51 @@ for epoch in tqdm(range(10)):
     print(f'Epoch: {epoch}, Loss: {np.mean(running_loss)}')
     running_loss = []
 
+    # Validation
+    correct = 0
+    total = 0
+    with torch.no_grad():
+        for X_batch, y_batch in valloader:
+            outputs = net(X_batch)
+            _, predicted = torch.max(outputs.data, 1)
+            total += y_batch.size(0)
+            correct += (predicted == y_batch).sum().item()
+
+    print(f'Accuracy: {100 * correct / total}')
+
 print('Finished Training')
+
+
+# %%
+
+lenet = LeNet()
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(lenet.parameters(), lr=0.01)
+
+for epoch in tqdm(range(10)):
+    running_loss = []
+    for i, (X_batch, y_batch) in enumerate(trainloader):
+        
+        optimizer.zero_grad()
+
+        outputs = lenet(X_batch)
+        loss = criterion(outputs, y_batch)
+        loss.backward()
+        optimizer.step()
+
+        running_loss.append(loss.item())
+
+    print(f'Epoch: {epoch}, Loss: {np.mean(running_loss)}')
+    running_loss = []
+
+    # Validation
+    correct = 0
+    total = 0
+    with torch.no_grad():
+        for X_batch, y_batch in valloader:
+            outputs = net(X_batch)
+            _, predicted = torch.max(outputs.data, 1)
+            total += y_batch.size(0)
+            correct += (predicted == y_batch).sum().item()
+
+    print(f'Accuracy: {100 * correct / total}')
