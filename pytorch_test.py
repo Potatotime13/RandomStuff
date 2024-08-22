@@ -270,3 +270,95 @@ for epoch in tqdm(range(10)):
             correct += (predicted == y_batch).sum().item()
 
     print(f'Accuracy: {100 * correct / total}')
+
+
+# %%
+    
+import qiskit.quantum_info as qi
+import plotly.express as px
+
+lens = 3
+qc = QuantumCircuit(lens)
+'''
+for i in range(lens):
+    qc.h(i)
+
+
+
+for i in range(lens):
+    angle = Parameter('enc_0_'+str(i))
+    angle = 0.7
+    qc.rzz(angle,1,2)
+'''
+'''
+for i in range(lens-1):
+    for j in range(i+1, lens):
+        angle = Parameter('enc_1_'+str(i)+'_'+str(j))
+        angle = 0.9
+        qc.rzz(angle, i, j)
+
+for i in range(lens):
+    angle = Parameter('conv_'+str(i))
+    angle = 0.5
+    qc.rx(angle, i)
+'''
+
+for i in range(1):
+    qc.cx(2, 0)
+
+#qc.measure_all()
+
+# plot the circuit
+qc.draw('mpl')
+
+op = qi.Operator(qc)
+
+test = op.data
+px.imshow(test.real)
+
+#%% build unitary
+
+gates = {
+    'H': qi.Operator.from_label('H').data,
+    'X': qi.Operator.from_label('X').data,
+    'Y': qi.Operator.from_label('Y').data,
+    'Z': qi.Operator.from_label('Z').data,
+    'I': qi.Operator.from_label('I').data,
+    'CNOT': np.array([[1, 0, 0, 0],[0, 1, 0, 0],[0, 0, 0, 1],[0, 0, 1, 0]]),
+}
+
+def get_CNOT(control, target):
+    swap = False
+    if control > target:
+        swap = True
+        control, target = target, control
+    diff = target - control
+    if diff > 1:
+        scaler = np.eye(2**diff)
+        upper = np.kron(scaler, gates['I'])
+        lower = np.kron(scaler, gates['X'])
+    else:
+        upper = gates['I']
+        lower = gates['X']
+    
+    unitary = np.kron(np.array([[1, 0], [0, 0]]), upper) + np.kron(np.array([[0, 0], [0, 1]]), lower)
+
+    if swap:
+        pass # build H x H x H x CNOT x H x H x H
+
+
+qubits = 4
+
+matrix = []
+op_list = ['I' for i in range(qubits)]
+for i in range(qubits):
+    op_list_t = op_list.copy()
+    op_list_t[i] = 'H'
+    unitary = gates[op_list_t[0]]
+    for j in range(1,qubits):
+        unitary = np.kron(unitary, gates[op_list_t[j]])
+    matrix.append(unitary)
+
+final = matrix[0]
+for i in range(1, qubits):
+    final = final @ matrix[i]
