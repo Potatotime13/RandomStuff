@@ -277,13 +277,13 @@ for epoch in tqdm(range(10)):
 import qiskit.quantum_info as qi
 import plotly.express as px
 
-lens = 3
+lens = 4
 qc = QuantumCircuit(lens)
-'''
+
 for i in range(lens):
     qc.h(i)
 
-
+'''
 
 for i in range(lens):
     angle = Parameter('enc_0_'+str(i))
@@ -301,12 +301,14 @@ for i in range(lens):
     angle = Parameter('conv_'+str(i))
     angle = 0.5
     qc.rx(angle, i)
-'''
+
 
 for i in range(1):
     qc.cx(2, 0)
+'''
 
-#qc.measure_all()
+qc.rz(0.7, 1)
+qc.measure_all()
 
 # plot the circuit
 qc.draw('mpl')
@@ -314,7 +316,13 @@ qc.draw('mpl')
 op = qi.Operator(qc)
 
 test = op.data
-px.imshow(test.real)
+px.imshow(test.real).show()
+px.imshow(test.imag).show()
+
+simulator = AerSimulator()
+result = simulator.run(qc, shots=1000000).result()
+counts = result.get_counts(qc)
+
 
 #%% build unitary
 
@@ -325,16 +333,21 @@ gates = {
     'Z': qi.Operator.from_label('Z').data,
     'I': qi.Operator.from_label('I').data,
     'CNOT': np.array([[1, 0, 0, 0],[0, 1, 0, 0],[0, 0, 0, 1],[0, 0, 1, 0]]),
+    'RZ_S': np.array([[-1j/2, 0], [0, 1j/2]], dtype=np.complex128),
+    'RX': np.array([[np.cos(np.pi/4), -1j*np.sin(np.pi/4)], [-1j*np.sin(np.pi/4), np.cos(np.pi/4)]], dtype=np.complex128)
 }
 
-def get_CNOT(control, target):
+def get_CNOT(control, target, qubits):
+    """
+    qubit index from 1 to N qubits
+    """
     swap = False
     if control > target:
         swap = True
         control, target = target, control
     diff = target - control
     if diff > 1:
-        scaler = np.eye(2**diff)
+        scaler = np.eye(2**(diff-1))
         upper = np.kron(scaler, gates['I'])
         lower = np.kron(scaler, gates['X'])
     else:
@@ -343,9 +356,36 @@ def get_CNOT(control, target):
     
     unitary = np.kron(np.array([[1, 0], [0, 0]]), upper) + np.kron(np.array([[0, 0], [0, 1]]), lower)
 
-    if swap:
-        pass # build H x H x H x CNOT x H x H x H
+    if qubits > diff + 1:
+        bits_before = control - 1
+        bits_after = qubits - target
+        unitary = np.kron(np.kron(np.eye(2**bits_before), unitary), np.eye(2**bits_after))
 
+    if swap:
+        swap_matrix = gates['H']
+        for i in range(1, qubits):
+            swap_matrix = np.kron(swap_matrix, gates['H'])
+        unitary = swap_matrix @ unitary @ swap_matrix
+
+def get_RZ_static(qubits):
+    """
+    qubit index from 1 to N qubits
+    """
+    unitary = gates['RZ']
+    for i in range(1, qubits):
+        unitary = np.kron(unitary, gates['RZ'])
+    return unitary
+
+def get_RX_(rotations):
+    """
+    qubit index from 1 to N qubits
+    """
+    unitary = np.array([[np.cos(rotations[0]/2), -1j*np.sin(rotations[0]/2)], 
+                        [-1j*np.sin(rotations[0]/2), np.cos(rotations[0]/2)]], dtype=np.complex128)
+    for i in range(1, qubits):
+        unitary = np.kron(unitary, np.array([[np.cos(rotations[i]/2), -1j*np.sin(rotations[i]/2)], 
+                                            [-1j*np.sin(rotations[i]/2), np.cos(rotations[i]/2)]], dtype=np.complex128))
+    return unitary
 
 qubits = 4
 
@@ -362,3 +402,9 @@ for i in range(qubits):
 final = matrix[0]
 for i in range(1, qubits):
     final = final @ matrix[i]
+
+#%%
+    
+# to measure the state probabilities
+# first row of the matrix, than abs() and square
+# then state to binary and calculate per qubit probability of 1
