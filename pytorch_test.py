@@ -280,8 +280,8 @@ import plotly.express as px
 lens = 4
 qc = QuantumCircuit(lens)
 
-for i in range(lens):
-    qc.h(i)
+#for i in range(lens):
+#    qc.h(i)
 
 '''
 
@@ -307,8 +307,15 @@ for i in range(1):
     qc.cx(2, 0)
 '''
 
-qc.rz(0.7, 1)
-qc.measure_all()
+qc.rzz(1, 0, 1)
+qc.rzz(1, 0, 2)
+qc.rzz(3, 0, 3)
+qc.rzz(4, 1, 2)
+qc.rzz(5, 1, 3)
+qc.rzz(6, 2, 3)
+
+#qc.rz(0.7, 1)
+#qc.measure_all()
 
 # plot the circuit
 qc.draw('mpl')
@@ -320,7 +327,7 @@ px.imshow(test.real).show()
 px.imshow(test.imag).show()
 
 simulator = AerSimulator()
-result = simulator.run(qc, shots=1000000).result()
+result = simulator.run(qc, shots=1000).result()
 counts = result.get_counts(qc)
 
 
@@ -341,9 +348,9 @@ def get_CNOT(control, target, qubits):
     """
     qubit index from 1 to N qubits
     """
-    swap = False
+    swap = True
     if control > target:
-        swap = True
+        swap = False
         control, target = target, control
     diff = target - control
     if diff > 1:
@@ -356,16 +363,18 @@ def get_CNOT(control, target, qubits):
     
     unitary = np.kron(np.array([[1, 0], [0, 0]]), upper) + np.kron(np.array([[0, 0], [0, 1]]), lower)
 
-    if qubits > diff + 1:
-        bits_before = control - 1
-        bits_after = qubits - target
-        unitary = np.kron(np.kron(np.eye(2**bits_before), unitary), np.eye(2**bits_after))
-
     if swap:
         swap_matrix = gates['H']
-        for i in range(1, qubits):
+        for _ in range(1,diff+1):
             swap_matrix = np.kron(swap_matrix, gates['H'])
         unitary = swap_matrix @ unitary @ swap_matrix
+
+    if qubits > diff + 1:
+        bits_before = int(control - 1)
+        bits_after = int(qubits - target)
+        unitary = np.kron(np.eye(2**bits_after), np.kron(unitary, np.eye(2**bits_before)))
+
+    return unitary
 
 def get_RZ_static(qubits):
     """
@@ -376,7 +385,7 @@ def get_RZ_static(qubits):
         unitary = np.kron(unitary, gates['RZ'])
     return unitary
 
-def get_RX_(rotations):
+def get_RX(rotations):
     """
     qubit index from 1 to N qubits
     """
@@ -386,6 +395,27 @@ def get_RX_(rotations):
         unitary = np.kron(unitary, np.array([[np.cos(rotations[i]/2), -1j*np.sin(rotations[i]/2)], 
                                             [-1j*np.sin(rotations[i]/2), np.cos(rotations[i]/2)]], dtype=np.complex128))
     return unitary
+
+def get_RZZ(qubits, rotation):
+    """
+    TODO qubit index from 1 to N qubits
+    """
+    pass
+
+def get_all_H(num_qubits):
+    unitary = gates['H']
+    for _ in range(1, num_qubits):
+        unitary = np.kron(unitary, gates['H'])
+    return unitary
+
+def get_CNOT_ring(num_qubits):
+    unitary = get_CNOT(1, 2, num_qubits)
+    for i in range(2, num_qubits):
+        unitary = get_CNOT(i, i+1, num_qubits) @ unitary
+    unitary = get_CNOT(num_qubits, 1, num_qubits) @ unitary
+    return unitary
+
+test = get_CNOT(4, 1, 4)
 
 qubits = 4
 
