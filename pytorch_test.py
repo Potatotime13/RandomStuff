@@ -307,12 +307,10 @@ for i in range(1):
     qc.cx(2, 0)
 '''
 rotations = [1,2,3,4]
-qc.rzz(rotations[0]*rotations[1], 0, 1)
-qc.rzz(rotations[0]*rotations[2], 0, 2)
-qc.rzz(rotations[0]*rotations[3], 0, 3)
-qc.rzz(rotations[1]*rotations[2], 1, 2)
-qc.rzz(rotations[1]*rotations[3], 1, 3)
-qc.rzz(rotations[2]*rotations[3], 2, 3)
+qc.rz(rotations[0], 0)
+qc.rz(rotations[1], 1)
+qc.rz(rotations[2], 2)
+qc.rz(rotations[3], 3)
 
 #qc.rz(0.7, 1)
 #qc.measure_all()
@@ -380,11 +378,11 @@ def get_CNOT(control, target, qubits):
 
 def get_RZ_static(qubits):
     """
-    qubit index from 1 to N qubits
+     TODO qubit index from 1 to N qubits
     """
-    unitary = gates['RZ']
+    unitary = gates['RZ_S']
     for i in range(1, qubits):
-        unitary = np.kron(unitary, gates['RZ'])
+        unitary = np.kron(unitary, gates['RZ_S'])
     return unitary
 
 def get_RX(rotations, qubits):
@@ -437,8 +435,13 @@ def get_CNOT_ring(num_qubits):
     unitary = get_CNOT(num_qubits, 1, num_qubits) @ unitary
     return unitary
 
-def get_all_RZ(rotations):
-    pass
+def get_all_RZ(rotations, qubits):
+    unitary = get_RZ_static(qubits)
+    rotations = np.array(rotations)
+    rot = np.prod(rotations)
+    unitary = unitary * rot
+    unitary = np.exp(unitary)
+    return unitary
 
 def get_RZZ_interconection(rotations, qubits):
     a = get_RZZ([1,2], rotations[0]*rotations[1], qubits)
@@ -455,14 +458,11 @@ test = get_CNOT(4, 1, 4)
 qubits = 4
 
 matrix = []
-op_list = ['I' for i in range(qubits)]
-for i in range(qubits):
-    op_list_t = op_list.copy()
-    op_list_t[i] = 'H'
-    unitary = gates[op_list_t[0]]
-    for j in range(1,qubits):
-        unitary = np.kron(unitary, gates[op_list_t[j]])
-    matrix.append(unitary)
+
+matrix.append(get_all_H(qubits))
+matrix.append(get_RZZ_interconection(rotations, qubits))
+matrix.append(get_RX(rotations, qubits))
+matrix.append(get_CNOT_ring(qubits))
 
 final = matrix[0]
 for i in range(1, qubits):
