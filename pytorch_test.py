@@ -306,25 +306,27 @@ for i in range(lens):
 for i in range(1):
     qc.cx(2, 0)
 '''
-
-qc.rzz(1, 0, 1)
-qc.rzz(1, 0, 2)
-qc.rzz(3, 0, 3)
-qc.rzz(4, 1, 2)
-qc.rzz(5, 1, 3)
-qc.rzz(6, 2, 3)
+rotations = [1,2,3,4]
+qc.rzz(rotations[0]*rotations[1], 0, 1)
+qc.rzz(rotations[0]*rotations[2], 0, 2)
+qc.rzz(rotations[0]*rotations[3], 0, 3)
+qc.rzz(rotations[1]*rotations[2], 1, 2)
+qc.rzz(rotations[1]*rotations[3], 1, 3)
+qc.rzz(rotations[2]*rotations[3], 2, 3)
 
 #qc.rz(0.7, 1)
 #qc.measure_all()
 
 # plot the circuit
-qc.draw('mpl')
+#qc.draw('mpl')
 
 op = qi.Operator(qc)
 
 test = op.data
 px.imshow(test.real).show()
 px.imshow(test.imag).show()
+
+#%%
 
 simulator = AerSimulator()
 result = simulator.run(qc, shots=1000).result()
@@ -385,7 +387,7 @@ def get_RZ_static(qubits):
         unitary = np.kron(unitary, gates['RZ'])
     return unitary
 
-def get_RX(rotations):
+def get_RX(rotations, qubits):
     """
     qubit index from 1 to N qubits
     """
@@ -396,11 +398,31 @@ def get_RX(rotations):
                                             [-1j*np.sin(rotations[i]/2), np.cos(rotations[i]/2)]], dtype=np.complex128))
     return unitary
 
-def get_RZZ(qubits, rotation):
+def get_RZZ(qubits:list, rotation:float, num_qubits:int):
     """
-    TODO qubit index from 1 to N qubits
+    qubit index from 1 to N qubits
     """
-    pass
+    control = min(qubits)
+    target = max(qubits)
+    diff = target - control
+    upper_diff = num_qubits - target
+    b1 = np.exp(1j*rotation/2)
+    b2 = np.exp(-1j*rotation/2)
+    operator_core = np.diag([b2, b1, b1, b2])
+    operator = np.kron(operator_core, np.eye(2**(control-1)))
+
+    if diff > 1:
+        operator_upper = operator[:len(operator)//2, :len(operator)//2]
+        operator_lower = operator[len(operator)//2:, len(operator)//2:]
+        scaler = np.eye(2**(diff-1))
+        upper = np.kron(scaler, operator_upper)
+        lower = np.kron(scaler, operator_lower)
+        operator = np.kron(np.array([[1, 0], [0, 0]]), upper) + np.kron(np.array([[0, 0], [0, 1]]), lower)
+    
+    if upper_diff > 0:
+        operator = np.kron(np.eye(2**upper_diff), operator)
+
+    return operator
 
 def get_all_H(num_qubits):
     unitary = gates['H']
@@ -414,6 +436,19 @@ def get_CNOT_ring(num_qubits):
         unitary = get_CNOT(i, i+1, num_qubits) @ unitary
     unitary = get_CNOT(num_qubits, 1, num_qubits) @ unitary
     return unitary
+
+def get_all_RZ(rotations):
+    pass
+
+def get_RZZ_interconection(rotations, qubits):
+    a = get_RZZ([1,2], rotations[0]*rotations[1], qubits)
+    b = get_RZZ([1,3], rotations[0]*rotations[2], qubits)
+    c = get_RZZ([1,4], rotations[0]*rotations[3], qubits)
+    d = get_RZZ([2,3], rotations[1]*rotations[2], qubits)
+    e = get_RZZ([2,4], rotations[1]*rotations[3], qubits)
+    f = get_RZZ([3,4], rotations[2]*rotations[3], qubits)
+
+    return f @ e @ d @ c @ b @ a
 
 test = get_CNOT(4, 1, 4)
 
