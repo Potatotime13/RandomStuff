@@ -11,43 +11,143 @@ from torchvision import datasets, transforms
 from torch import nn, optim
 from tqdm import tqdm
 
+gates = {
+    'H': np.array([[1, 1], [1, -1]]) / np.sqrt(2),
+    'X': np.array([[0, 1], [1, 0]]),
+    'I': np.eye(2),
+}
+
 
 class QuantumConv2d(nn.Module):
     def __init__(self, kernel_size, stride):
         super(QuantumConv2d, self).__init__()
         self.kernel_size = kernel_size
         self.stride = stride
+        self.qubits = kernel_size**2
+
+        # static layers
+        self.h_static = self.get_all_H(self.qubits)
+        self.rz_static = self.get_static_RZ(self.qubits)
+        self.cnot_static = self.get_CNOT_ring(self.qubits)
+
         self.weight = nn.Parameter(torch.randn(kernel_size, kernel_size))
-        self.simulator = AerSimulator()
-        self.circ = self.build_circuit()
 
-    def build_circuit(self):
-        lens = self.kernel_size**2
-        qc = QuantumCircuit(lens)
-        for i in range(lens):
-            qc.h(i)
+    def get_all_H(self, num_qubits):
+        unitary = gates['H']
+        for _ in range(1, num_qubits):
+            unitary = np.kron(unitary, gates['H'])
+        return unitary
 
-        for i in range(lens):
-            angle = Parameter('enc_0_'+str(i))
-            qc.rz(angle,i)
-        
-        for i in range(lens-1):
-            for j in range(i+1, lens):
-                angle = Parameter('enc_1_'+str(i)+'_'+str(j))
-                qc.rzz(angle, i, j)
-
-        for i in range(lens):
-            angle = Parameter('conv_'+str(i))
-            qc.rx(angle, i)
-
-        for i in range(lens):
-            qc.cx(i, (i+1) % lens)
-
-        qc.measure_all()
-        qc = generate_preset_pass_manager(optimization_level=3).run(qc)
-
-        return qc
+    def get_static_RZ(self, qubits):
+        def bin_list(num, length):
+            formating = '{0:0' + str(length) + 'b}'
+            binary = f'{formating}'.format(num)
+            return [int(x) for x in binary]
+        binary_array = [bin_list(x, qubits) for x in range(2**qubits)]
+        binary_array = np.flip(np.array(binary_array), axis=1)
+        sign_matrix = -np.ones((2**qubits, qubits)) + 2*np.array(binary_array)
+        return sign_matrix
     
+    def get_all_RZ(self, rotations, sign_matrix):
+        rots = np.array(rotations) / 2 * 1j
+        unitary = np.sum(sign_matrix * rots, axis=1)
+        unitary = np.exp(unitary)
+        unitary = np.diag(unitary)
+        return unitary
+    
+    def get_RZZ(self, qubits:list, rotation:float, num_qubits:int):
+        """
+        qubit index from 1 to N qubits
+        """
+        control = min(qubits)
+        target = max(qubits)
+        diff = target - control
+        upper_diff = num_qubits - target
+        b1 = np.exp(1j*rotation/2)
+        b2 = np.exp(-1j*rotation/2)
+        operator_core = np.diag([b2, b1, b1, b2])
+        operator = np.kron(operator_core, np.eye(2**(control-1)))
+
+        if diff > 1:
+            operator_upper = operator[:len(operator)//2, :len(operator)//2]
+            operator_lower = operator[len(operator)//2:, len(operator)//2:]
+            scaler = np.eye(2**(diff-1))
+            upper = np.kron(scaler, operator_upper)
+            lower = np.kron(scaler, operator_lower)
+            operator = np.kron(np.array([[1, 0], [0, 0]]), upper) + np.kron(np.array([[0, 0], [0, 1]]), lower)
+        
+        if upper_diff > 0:
+            operator = np.kron(np.eye(2**upper_diff), operator)
+
+        return operator
+
+    def get_all_RZ(self, rotations, sign_matrix):
+        rots = np.array(rotations) / 2 * 1j
+        unitary = np.sum(sign_matrix * rots, axis=1)
+        unitary = np.exp(unitary)
+        unitary = np.diag(unitary)
+        return unitary
+
+    def get_RZZ_interconection(self, rotations, qubits):
+        ops = []
+        for i in range(qubits-1):
+            for j in range(i+1, qubits):
+                ops.append(self.get_RZZ([i,j], rotations[i]*rotations[j], qubits))
+        unitary = ops[-1]
+        for i in range(0, len(ops)-1):
+            unitary = unitary @ ops[len(ops)-2-i]
+        return unitary
+
+    def get_RX(self, rotations, qubits):
+        """
+        qubit index from 1 to N qubits
+        """
+        unitary = np.array([[np.cos(rotations[0]/2), -1j*np.sin(rotations[0]/2)], 
+                            [-1j*np.sin(rotations[0]/2), np.cos(rotations[0]/2)]], dtype=np.complex128)
+        for i in range(1, qubits):
+            unitary = np.kron(np.array([[np.cos(rotations[i]/2), -1j*np.sin(rotations[i]/2)], 
+                                                [-1j*np.sin(rotations[i]/2), np.cos(rotations[i]/2)]], dtype=np.complex128), unitary)
+        return unitary
+
+    def get_CNOT(self, control, target, qubits):
+        """
+        qubit index from 1 to N qubits
+        """
+        swap = True
+        if control > target:
+            swap = False
+            control, target = target, control
+        diff = target - control
+        if diff > 1:
+            scaler = np.eye(2**(diff-1))
+            upper = np.kron(scaler, gates['I'])
+            lower = np.kron(scaler, gates['X'])
+        else:
+            upper = gates['I']
+            lower = gates['X']
+        
+        unitary = np.kron(np.array([[1, 0], [0, 0]]), upper) + np.kron(np.array([[0, 0], [0, 1]]), lower)
+
+        if swap:
+            swap_matrix = gates['H']
+            for _ in range(1,diff+1):
+                swap_matrix = np.kron(swap_matrix, gates['H'])
+            unitary = swap_matrix @ unitary @ swap_matrix
+
+        if qubits > diff + 1:
+            bits_before = int(control - 1)
+            bits_after = int(qubits - target)
+            unitary = np.kron(np.eye(2**bits_after), np.kron(unitary, np.eye(2**bits_before)))
+
+        return unitary
+
+    def get_CNOT_ring(self, num_qubits):
+        unitary = self.get_CNOT(1, 2, num_qubits)
+        for i in range(2, num_qubits):
+            unitary = self.get_CNOT(i, i+1, num_qubits) @ unitary
+        unitary = self.get_CNOT(num_qubits, 1, num_qubits) @ unitary
+        return unitary
+
     def bin_to_num(self, list_x: list):
         return [int(x, 2) for x in list_x]
     
@@ -57,33 +157,19 @@ class QuantumConv2d(nn.Module):
             res.append([int(y) for y in x])
         return torch.tensor(res, dtype=torch.float32)
     
-    def assign_params(self, x):
-        params = {}
-        lens = self.kernel_size**2
-        x_flat = x.flatten()
-        w_flat = self.weight.flatten()
-        for i in range(lens):
-            params['enc_0_'+str(i)] = x_flat[i].item()
-
-        for i in range(lens-1):
-            for j in range(i+1, lens):
-                params['enc_1_'+str(i)+'_'+str(j)] = x_flat[i].item() * x_flat[j].item()
-
-        for i in range(lens):
-            params['conv_'+str(i)] = w_flat[i].item()
-
-        return self.circ.assign_parameters(params)
-    
     def sub_forward(self, x):
-        circ = self.assign_params(x)
-        # Run and get counts
-        result = self.simulator.run(circ).result()
-        counts = result.get_counts(circ)
+        operations = []
+        operations.append(self.h_static)
+        operations.append(self.get_all_RZ(x.flatten().tolist(), self.rz_static))
+        operations.append(self.get_RZZ_interconection(x.flatten().tolist(), self.qubits))
+        operations.append(self.get_RX(self.weight, self.qubits))
+        operations.append(self.cnot_static)
 
-        count_bins = self.str_to_tensor(list(counts.keys()))
-        count_vals = torch.tensor(list(counts.values()), dtype=torch.float32)
-        count_vals = count_vals / count_vals.sum()
-        return torch.matmul(count_vals, count_bins)
+        final = operations[-1]
+        for i in range(0, len(operations)-1):
+            final = final @ operations[len(operations)-2-i]
+
+        return np.abs(final[:, 0])**2
     
     def forward(self, x):
         out = torch.zeros(x.shape[0], self.kernel_size**2, x.shape[1]//self.stride, x.shape[2]//self.stride)
@@ -280,40 +366,32 @@ import plotly.express as px
 lens = 4
 qc = QuantumCircuit(lens)
 
-#for i in range(lens):
-#    qc.h(i)
+rotations = [1,2,3,4]
+rotations_params = [3,4,5,6]
 
-'''
+for i in range(lens):
+    qc.h(i)
 
 for i in range(lens):
     angle = Parameter('enc_0_'+str(i))
-    angle = 0.7
-    qc.rzz(angle,1,2)
-'''
-'''
+    angle = rotations[i]
+    qc.rz(angle,i)
+
 for i in range(lens-1):
     for j in range(i+1, lens):
         angle = Parameter('enc_1_'+str(i)+'_'+str(j))
-        angle = 0.9
+        angle = rotations[i] * rotations[j]
         qc.rzz(angle, i, j)
 
 for i in range(lens):
     angle = Parameter('conv_'+str(i))
-    angle = 0.5
+    angle = rotations_params[i]
     qc.rx(angle, i)
 
+for i in range(lens):
+    qc.cx(i, (i+1) % lens)
 
-for i in range(1):
-    qc.cx(2, 0)
-'''
-rotations = [1,2,3,4]
-qc.rz(rotations[0], 0)
-qc.rz(rotations[1], 1)
-qc.rz(rotations[2], 2)
-qc.rz(rotations[3], 3)
-
-#qc.rz(0.7, 1)
-#qc.measure_all()
+qc.measure_all()
 
 # plot the circuit
 #qc.draw('mpl')
@@ -327,8 +405,13 @@ px.imshow(test.imag).show()
 #%%
 
 simulator = AerSimulator()
-result = simulator.run(qc, shots=1000).result()
+result = simulator.run(qc, shots=100000).result()
 counts = result.get_counts(qc)
+counts = {int(k, 2): v for k, v in counts.items()}
+counts = np.array([counts.get(i, 0) for i in range(2**lens)])
+counts = counts / np.sum(counts)
+
+px.bar(x=[str(i) for i in range(2**lens)], y=counts).show()
 
 
 #%% build unitary
@@ -376,15 +459,6 @@ def get_CNOT(control, target, qubits):
 
     return unitary
 
-def get_RZ_static(qubits):
-    """
-     TODO qubit index from 1 to N qubits
-    """
-    unitary = gates['RZ_S']
-    for i in range(1, qubits):
-        unitary = np.kron(unitary, gates['RZ_S'])
-    return unitary
-
 def get_RX(rotations, qubits):
     """
     qubit index from 1 to N qubits
@@ -392,8 +466,8 @@ def get_RX(rotations, qubits):
     unitary = np.array([[np.cos(rotations[0]/2), -1j*np.sin(rotations[0]/2)], 
                         [-1j*np.sin(rotations[0]/2), np.cos(rotations[0]/2)]], dtype=np.complex128)
     for i in range(1, qubits):
-        unitary = np.kron(unitary, np.array([[np.cos(rotations[i]/2), -1j*np.sin(rotations[i]/2)], 
-                                            [-1j*np.sin(rotations[i]/2), np.cos(rotations[i]/2)]], dtype=np.complex128))
+        unitary = np.kron(np.array([[np.cos(rotations[i]/2), -1j*np.sin(rotations[i]/2)], 
+                                            [-1j*np.sin(rotations[i]/2), np.cos(rotations[i]/2)]], dtype=np.complex128), unitary)
     return unitary
 
 def get_RZZ(qubits:list, rotation:float, num_qubits:int):
@@ -435,12 +509,23 @@ def get_CNOT_ring(num_qubits):
     unitary = get_CNOT(num_qubits, 1, num_qubits) @ unitary
     return unitary
 
-def get_all_RZ(rotations, qubits):
-    unitary = get_RZ_static(qubits)
-    rotations = np.array(rotations)
-    rot = np.prod(rotations)
-    unitary = unitary * rot
+def get_static_RZ(qubits):
+    def bin_list(num, length):
+        formating = '{0:0' + str(length) + 'b}'
+        binary = f'{formating}'.format(num)
+        return [int(x) for x in binary]
+
+    binary_array = [bin_list(x, qubits) for x in range(2**qubits)]
+    binary_array = np.flip(np.array(binary_array), axis=1)
+    sign_matrix = -np.ones((2**qubits, qubits)) + 2*np.array(binary_array)
+
+    return sign_matrix
+
+def get_all_RZ(rotations, sign_matrix):
+    rots = np.array(rotations) / 2 * 1j
+    unitary = np.sum(sign_matrix * rots, axis=1)
     unitary = np.exp(unitary)
+    unitary = np.diag(unitary)
     return unitary
 
 def get_RZZ_interconection(rotations, qubits):
@@ -453,20 +538,26 @@ def get_RZZ_interconection(rotations, qubits):
 
     return f @ e @ d @ c @ b @ a
 
-test = get_CNOT(4, 1, 4)
-
+#%%
 qubits = 4
-
 matrix = []
+rotations = [1,2,3,4]
+rotations_params = [3,4,5,6]
 
 matrix.append(get_all_H(qubits))
+signs = get_static_RZ(qubits)
+matrix.append(get_all_RZ(rotations, signs))
 matrix.append(get_RZZ_interconection(rotations, qubits))
-matrix.append(get_RX(rotations, qubits))
+matrix.append(get_RX(rotations_params, qubits))
 matrix.append(get_CNOT_ring(qubits))
 
-final = matrix[0]
-for i in range(1, qubits):
-    final = final @ matrix[i]
+final = matrix[-1]
+if len(matrix) > 1:
+    for i in range(0, len(matrix)-1):
+        final = final @ matrix[len(matrix)-2-i]
+
+px.imshow(final.real).show()
+px.imshow(final.imag).show()
 
 #%%
     
