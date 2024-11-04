@@ -12,11 +12,10 @@ from torch import nn, optim
 from tqdm import tqdm
 
 gates = {
-    'H': np.array([[1, 1], [1, -1]]) / np.sqrt(2),
-    'X': np.array([[0, 1], [1, 0]]),
-    'I': np.eye(2),
+    'H': torch.tensor([[1, 1], [1, -1]]) / torch.sqrt(torch.tensor([2.0])),
+    'X': torch.tensor([[0, 1], [1, 0]]),
+    'I': torch.eye(2),
 }
-
 
 class QuantumConv2d(nn.Module):
     def __init__(self, kernel_size, stride):
@@ -48,13 +47,6 @@ class QuantumConv2d(nn.Module):
         sign_matrix = -np.ones((2**qubits, qubits)) + 2*np.array(binary_array)
         return sign_matrix
     
-    def get_all_RZ(self, rotations, sign_matrix):
-        rots = np.array(rotations) / 2 * 1j
-        unitary = np.sum(sign_matrix * rots, axis=1)
-        unitary = np.exp(unitary)
-        unitary = np.diag(unitary)
-        return unitary
-    
     def get_RZZ(self, qubits:list, rotation:float, num_qubits:int):
         """
         qubit index from 1 to N qubits
@@ -66,7 +58,7 @@ class QuantumConv2d(nn.Module):
         b1 = np.exp(1j*rotation/2)
         b2 = np.exp(-1j*rotation/2)
         operator_core = np.diag([b2, b1, b1, b2])
-        operator = np.kron(operator_core, np.eye(2**(control-1)))
+        operator = np.kron(operator_core, np.eye(int(2**(control-1))))
 
         if diff > 1:
             operator_upper = operator[:len(operator)//2, :len(operator)//2]
@@ -92,7 +84,7 @@ class QuantumConv2d(nn.Module):
         ops = []
         for i in range(qubits-1):
             for j in range(i+1, qubits):
-                ops.append(self.get_RZZ([i,j], rotations[i]*rotations[j], qubits))
+                ops.append(self.get_RZZ([i+1,j+1], rotations[i]*rotations[j], qubits))
         unitary = ops[-1]
         for i in range(0, len(ops)-1):
             unitary = unitary @ ops[len(ops)-2-i]
@@ -391,7 +383,7 @@ for i in range(lens):
 for i in range(lens):
     qc.cx(i, (i+1) % lens)
 
-qc.measure_all()
+#qc.measure_all()
 
 # plot the circuit
 #qc.draw('mpl')
@@ -417,14 +409,9 @@ px.bar(x=[str(i) for i in range(2**lens)], y=counts).show()
 #%% build unitary
 
 gates = {
-    'H': qi.Operator.from_label('H').data,
-    'X': qi.Operator.from_label('X').data,
-    'Y': qi.Operator.from_label('Y').data,
-    'Z': qi.Operator.from_label('Z').data,
-    'I': qi.Operator.from_label('I').data,
-    'CNOT': np.array([[1, 0, 0, 0],[0, 1, 0, 0],[0, 0, 0, 1],[0, 0, 1, 0]]),
-    'RZ_S': np.array([[-1j/2, 0], [0, 1j/2]], dtype=np.complex128),
-    'RX': np.array([[np.cos(np.pi/4), -1j*np.sin(np.pi/4)], [-1j*np.sin(np.pi/4), np.cos(np.pi/4)]], dtype=np.complex128)
+    'H': torch.tensor([[1, 1], [1, -1]]) / torch.sqrt(torch.tensor([2.0])),
+    'X': torch.tensor([[0, 1], [1, 0]]),
+    'I': torch.eye(2),
 }
 
 def get_CNOT(control, target, qubits):
@@ -437,25 +424,25 @@ def get_CNOT(control, target, qubits):
         control, target = target, control
     diff = target - control
     if diff > 1:
-        scaler = np.eye(2**(diff-1))
-        upper = np.kron(scaler, gates['I'])
-        lower = np.kron(scaler, gates['X'])
+        scaler = torch.eye(2**(diff-1))
+        upper = torch.kron(scaler, gates['I'])
+        lower = torch.kron(scaler, gates['X'])
     else:
         upper = gates['I']
         lower = gates['X']
     
-    unitary = np.kron(np.array([[1, 0], [0, 0]]), upper) + np.kron(np.array([[0, 0], [0, 1]]), lower)
+    unitary = torch.kron(torch.tensor([[1, 0], [0, 0]]), upper) + torch.kron(torch.tensor([[0, 0], [0, 1]]), lower)
 
     if swap:
         swap_matrix = gates['H']
         for _ in range(1,diff+1):
-            swap_matrix = np.kron(swap_matrix, gates['H'])
+            swap_matrix = torch.kron(swap_matrix, gates['H'])
         unitary = swap_matrix @ unitary @ swap_matrix
 
     if qubits > diff + 1:
         bits_before = int(control - 1)
         bits_after = int(qubits - target)
-        unitary = np.kron(np.eye(2**bits_after), np.kron(unitary, np.eye(2**bits_before)))
+        unitary = torch.kron(torch.eye(2**bits_after), torch.kron(unitary, torch.eye(2**bits_before)))
 
     return unitary
 
@@ -463,11 +450,11 @@ def get_RX(rotations, qubits):
     """
     qubit index from 1 to N qubits
     """
-    unitary = np.array([[np.cos(rotations[0]/2), -1j*np.sin(rotations[0]/2)], 
-                        [-1j*np.sin(rotations[0]/2), np.cos(rotations[0]/2)]], dtype=np.complex128)
+    unitary = torch.tensor([[torch.cos(rotations[0]/2), -1j * torch.sin(rotations[0]/2)], 
+                    [-1j*torch.sin(rotations[0]/2), torch.cos(rotations[0]/2)]], dtype=torch.cfloat)
     for i in range(1, qubits):
-        unitary = np.kron(np.array([[np.cos(rotations[i]/2), -1j*np.sin(rotations[i]/2)], 
-                                            [-1j*np.sin(rotations[i]/2), np.cos(rotations[i]/2)]], dtype=np.complex128), unitary)
+        unitary = torch.kron(torch.tensor([[torch.cos(rotations[i]/2), -1j * torch.sin(rotations[i]/2)], 
+                    [-1j * torch.sin(rotations[i]/2), torch.cos(rotations[i]/2)]], dtype=torch.cfloat), unitary)
     return unitary
 
 def get_RZZ(qubits:list, rotation:float, num_qubits:int):
@@ -478,28 +465,28 @@ def get_RZZ(qubits:list, rotation:float, num_qubits:int):
     target = max(qubits)
     diff = target - control
     upper_diff = num_qubits - target
-    b1 = np.exp(1j*rotation/2)
-    b2 = np.exp(-1j*rotation/2)
-    operator_core = np.diag([b2, b1, b1, b2])
-    operator = np.kron(operator_core, np.eye(2**(control-1)))
+    b1 = torch.exp(1j*rotation/2)
+    b2 = torch.exp(-1j*rotation/2)
+    operator_core = torch.diag(torch.tensor([b2, b1, b1, b2]))
+    operator = torch.kron(operator_core, torch.eye(2**(control-1)))
 
     if diff > 1:
         operator_upper = operator[:len(operator)//2, :len(operator)//2]
         operator_lower = operator[len(operator)//2:, len(operator)//2:]
-        scaler = np.eye(2**(diff-1))
-        upper = np.kron(scaler, operator_upper)
-        lower = np.kron(scaler, operator_lower)
-        operator = np.kron(np.array([[1, 0], [0, 0]]), upper) + np.kron(np.array([[0, 0], [0, 1]]), lower)
+        scaler = torch.eye(2**(diff-1))
+        upper = torch.kron(scaler, operator_upper)
+        lower = torch.kron(scaler, operator_lower)
+        operator = torch.kron(torch.tensor([[1, 0], [0, 0]]), upper) + torch.kron(torch.tensor([[0, 0], [0, 1]]), lower)
     
     if upper_diff > 0:
-        operator = np.kron(np.eye(2**upper_diff), operator)
+        operator = torch.kron(torch.eye(2**upper_diff), operator)
 
     return operator
 
 def get_all_H(num_qubits):
     unitary = gates['H']
     for _ in range(1, num_qubits):
-        unitary = np.kron(unitary, gates['H'])
+        unitary = torch.kron(unitary, gates['H'])
     return unitary
 
 def get_CNOT_ring(num_qubits):
@@ -516,16 +503,16 @@ def get_static_RZ(qubits):
         return [int(x) for x in binary]
 
     binary_array = [bin_list(x, qubits) for x in range(2**qubits)]
-    binary_array = np.flip(np.array(binary_array), axis=1)
-    sign_matrix = -np.ones((2**qubits, qubits)) + 2*np.array(binary_array)
+    binary_array = torch.flip(torch.tensor(binary_array), dims=(-1,))
+    sign_matrix = -torch.ones((2**qubits, qubits)) + 2 * binary_array
 
     return sign_matrix
 
 def get_all_RZ(rotations, sign_matrix):
-    rots = np.array(rotations) / 2 * 1j
-    unitary = np.sum(sign_matrix * rots, axis=1)
-    unitary = np.exp(unitary)
-    unitary = np.diag(unitary)
+    rots = torch.tensor(rotations, dtype=torch.cfloat) / 2 * 1j
+    unitary = torch.sum(sign_matrix * rots, dims=(-1,))
+    unitary = torch.exp(unitary)
+    unitary = torch.diag(unitary)
     return unitary
 
 def get_RZZ_interconection(rotations, qubits):
