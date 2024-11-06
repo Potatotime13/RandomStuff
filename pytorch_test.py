@@ -30,7 +30,7 @@ class QuantumConv2d(nn.Module):
         self.cnot_static = self.get_CNOT_ring(self.qubits)
         self.states = self.get_static_state_list(self.qubits)
 
-        self.weight = nn.Parameter(torch.randn(kernel_size, kernel_size))
+        self.weight = nn.Parameter(torch.randn(kernel_size, kernel_size, requires_grad=True))
 
     def get_all_H(self, num_qubits):
         unitary = gates['H']
