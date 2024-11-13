@@ -29,8 +29,11 @@ class QuantumConv2d(nn.Module):
                                      + torch.arange(0,(size**2)/kernel_size) // size).int()
         self.upper_triag = torch.triu(torch.arange(self.qubits**2).reshape(self.qubits, self.qubits), diagonal=1)
         self.upper_triag = self.upper_triag[self.upper_triag != 0]
-        self.qubit_tuples = torch.tensor([[i, j] for i in range(1, self.qubits+1) for j in range(i+1, self.qubits+1)])
-        self.qubit_tuples = self.qubit_tuples.repeat(self.qubits**2,1,1)
+        self.qubit_tuples = torch.tensor([[i, j] for i in range(1, self.qubits+1) for j in range(i+1, self.qubits+1)]).int()
+        divisor = self.size // self.kernel_size
+        self.permute_back = (torch.arange(0, self.size**2//self.kernel_size) % divisor * self.size
+                             + torch.arange(0, self.size**2//self.kernel_size) // divisor).int()
+
 
         # static layers
         self.h_static = self.get_all_H(self.qubits)
@@ -62,21 +65,18 @@ class QuantumConv2d(nn.Module):
         states = torch.tensor(states, dtype=torch.float32)
         return states
     
-    def get_RZZ(self, inp):
+    def get_RZZ(self, qubits, rotation):
         """
         input: [qubit1, qubit2, rotation]
         qubit index from 1 to N qubits
         """
-        print(inp.shape)
-        qubits = inp[0:2]
-        rotation = inp[-1:]
+        qubits = self.qubit_tuples
         control = torch.min(qubits)
         target = torch.max(qubits)
         diff = target - control
         upper_diff = self.qubits - target
         b1 = torch.exp(1j*rotation/2)
         b2 = torch.exp(-1j*rotation/2)
-        print(rotation.shape)
         b12 = torch.concat([b2, b1, b1, b2])
         
         operator_core = torch.diag(b12)
@@ -102,24 +102,15 @@ class QuantumConv2d(nn.Module):
         unitary = torch.diag(unitary)
         return unitary
 
-    def get_RZZ_interconnection(self, rotations:torch.Tensor, qubits):
-        print(rotations.shape)
-        rot_mul = rotations.reshape(rotations.shape[0], 1, rotations.shape[1]).mul(
-                    rotations.reshape(rotations.shape[0], 1, rotations.shape[1]).transpose(-2,-1))
-        rot_mul = rot_mul.flatten(start_dim=1)[:,self.upper_triag]
-        print(rot_mul.shape)        
-        input_ = torch.concat([self.qubit_tuples, test[:,:,None]], dim=2)
-        input_ = input_.flatten(end_dim=-2)
-        print(input_.shape)
-        ops = torch.vmap(self.get_RZZ)(input_)
-        ops = torch.vmap(self.get_RZZ)(self.qubit_tuples, rot_mul)
-        ops = []
-        for i in range(qubits-1):
-            for j in range(i+1, qubits):
-                ops.append(self.get_RZZ([i+1,j+1], rotations[i]*rotations[j], qubits))
-        unitary = ops[-1]
-        for i in range(0, len(ops)-1):
-            unitary = unitary @ ops[len(ops)-2-i]
+    def get_RZZ_interconnection(self, rotations:torch.Tensor):
+        rot_mul = rotations[:,None].matmul(rotations[None,:])
+        rot_mul = rot_mul.flatten()[self.upper_triag]
+        ops:torch.Tensor = torch.vmap(self.get_RZZ)(self.qubit_tuples, rot_mul[:,None])
+        ops = ops.reshape(len(self.upper_triag), ops.shape[1], ops.shape[2])
+        # 6, 16, 16
+        unitary = ops[-1,:,:]
+        for i in range(0, ops.shape[0]-1):
+            unitary = unitary.matmul(ops[ops.shape[0]-2-i,:,:])
         return unitary
 
     def get_RX(self, rotations, qubits):
@@ -184,25 +175,28 @@ class QuantumConv2d(nn.Module):
     def sub_forward(self, x: torch.Tensor):
         operations = []
         operations.append(self.h_static)
-        operations.append(self.get_all_RZ(x.flatten(start_dim=1), self.rz_static))
-        operations.append(self.get_RZZ_interconnection(x.flatten(start_dim=1), self.qubits))
+        operations.append(self.get_all_RZ(x.flatten(), self.rz_static))
+        operations.append(self.get_RZZ_interconnection(x.flatten()))
         operations.append(self.get_RX(self.weight.flatten(), self.qubits))
         operations.append(self.cnot_static)
 
-        final = operations[-1]
+        final:torch.Tensor = operations[-1]
         for i in range(0, len(operations)-1):
-            final = final @ operations[len(operations)-2-i]
+            final = final.matmul(operations[len(operations)-2-i])
 
-        state_probs = np.abs(final[:, 0])**2
-        state_probs = state_probs @ self.states
+        state_probs = (torch.abs(final[:, 0])**2)[None,:]
+        state_probs = state_probs.matmul(self.states)
+
         return state_probs
     
     def forward(self, x):
         batch_dim = x.shape[0]
         out = x.reshape(batch_dim,(self.size**2)//2,1,2)
         out = out[:,self.sub_part_permutation].reshape(batch_dim,(self.size**2)//self.kernel_size**2,2,2)
+        out = out.flatten(end_dim=-3)
         out = torch.vmap(self.sub_forward)(out).reshape(
-            batch_dim,self.size//self.kernel_size,self.size//self.kernel_size).transpose(1,2)
+            batch_dim,out.shape[0]//batch_dim*self.kernel_size,self.kernel_size)
+        out = out[:,self.permute_back,:].reshape(batch_dim,self.size,self.size)
         return out
 
 
