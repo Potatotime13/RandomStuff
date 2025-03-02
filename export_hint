@@ -1,0 +1,10 @@
+1. über anaconda promt ins verzeichnis navigieren oder ins basisverzeichnis navigieren (cd ..)
+   bei absoluten pfaden basisverzeichnis
+   bei relativen pfaden ins verzeichnis navigieren
+2. ausführen von:
+    jupyter nbconvert report.ipynb --to html --execute
+
+Tips: 
+- Zellen sollten kurze laufzeiten haben sonst dauert der export ewig
+- Man kann die Code blöcke ausblenden lassen für den finalen export:
+    --no-input
