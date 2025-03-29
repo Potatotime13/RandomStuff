@@ -1,0 +1,7 @@
+0,Healthcare System Type,R(Regulation),F(Financing),P(Provision),Cases
+1,National Health Service,St,St,St,Denmark Finland Iceland Norway Sweden Portugal Spain UK
+2,National Health Insurance,St,St,Pr,Australia Canada Ireland New Zealand Italy
+3,Social-based mixed-type,So,So,St,Slovenia
+4,Social Health Insurance,So,So,Pr,Austria Germany Luxembourg Switzerland
+5,Private Health System,Pr,Pr,Pr,USA
+6,Etatist Social Health Insurance,St,So,Pr,Belgium Estonia France Czech Republic Hungary Netherlands Poland Slovakia Israel Japan Korea
